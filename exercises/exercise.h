@@ -3,6 +3,6 @@
 #include <sys/types.h>
 
 /* Returns the PID of the parent process */
-pid_t getppid(void);
+pid_t _getpid(void);
 
 #endif

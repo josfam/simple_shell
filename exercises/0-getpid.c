@@ -1,11 +1,12 @@
 #include "exercise.h"
+#include <unistd.h>
 
 /**
- * getpid - Returns the PID of the parent process.
+ * _getpid - Returns the PID of the parent process.
  * Description: Returns the PID of the parent process.
  * Return: The PID of the parent process.
  */
-pid_t getpid(void)
+pid_t _getpid(void)
 {
 	return (getppid());
 }
