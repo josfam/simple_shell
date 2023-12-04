@@ -14,4 +14,7 @@ void _puts(char *str);
 /* Return the length of a null-terminated string */
 int _strlen(char *s);
 
+/* Splits a string and returns an array of each word of the string */
+char **_str_split(char *str);
+
 #endif
