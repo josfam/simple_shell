@@ -24,3 +24,15 @@ Write a shell script that prints the maximum value a process ID can be.
 ```txt
 files involved: max-pid.sh
 ```
+
+## 0. av
+
+Write a program that prints all the arguments, without using ac.
+
+- av is a NULL terminated array of strings
+- ac is the number of items in av
+
+```txt
+files involved: 0-av.c, _putchar.c
+compilation used to test: gcc -Wall -Werror -Wextra -pedantic -std=gnu89 0-av.c _putchar.c
+```
