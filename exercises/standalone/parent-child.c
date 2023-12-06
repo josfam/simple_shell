@@ -30,7 +30,8 @@ int main(void)
 	}
 	else
 	{
-		printf("I, (%u), am the parent.\n", my_pid);
+		/* fork_num is now the pid of the child as per the spec */
+		printf("I, (%u), am the parent of (%u)\n", my_pid, fork_num);
 	}
 
 	return 0;
