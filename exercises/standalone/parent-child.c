@@ -35,7 +35,3 @@ int main(void)
 
 	return 0;
 }
-
-/**
- * Still a little confused about the chronology of events here.
-*/
