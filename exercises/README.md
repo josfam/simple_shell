@@ -91,3 +91,13 @@ int main(void)
 	return (0);
 }
 ```
+
+## Creating processes (in standalone)
+
+```txt
+*compilation was done one level outside the standalone folder
+
+compilations used: 
+gcc -Wall -Werror -Wextra -pedantic -std=gnu89 standalone/fork.c
+gcc -Wall -Werror -Wextra -pedantic -std=gnu89 standalone/parent-child.c
+```
