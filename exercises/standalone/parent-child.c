@@ -10,11 +10,11 @@
 int main(void)
 {
 	pid_t my_pid;
-	pid_t some_pid;
+	pid_t fork_num;
 
-	some_pid = fork();
+	fork_num = fork();
 
-	if (some_pid == -1)
+	if (fork_num == -1)
 	{
 		perror("Error:");
 		return (1);
@@ -24,13 +24,13 @@ int main(void)
 
 	printf("My pid is: %u\n", my_pid);
 
-	if (some_pid == 0) /* This was the child */
+	if (fork_num == 0) /* The current process is a child */
 	{
 		printf("I, (%u), am the child.\n", my_pid);
 	}
 	else
 	{
-		printf("I, (%u), am the parent of (%u)\n", my_pid, some_pid);
+		printf("I, (%u), am the parent.\n", my_pid);
 	}
 
 	return 0;
