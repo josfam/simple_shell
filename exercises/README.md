@@ -92,7 +92,7 @@ int main(void)
 }
 ```
 
-## Creating processes (in standalone)
+## Creating processes
 
 ```txt
 compilations used: 
@@ -100,21 +100,21 @@ gcc -Wall -Werror -Wextra -pedantic -std=gnu89 standalone/fork.c
 gcc -Wall -Werror -Wextra -pedantic -std=gnu89 standalone/parent-child.c
 ```
 
-## Wait (in standalone)
+## Wait
 
 ```txt
 compilation used:
 gcc -Wall -Werror -Wextra -pedantic -std=gnu89 standalone/wait.c 
 ```
 
-## fork + wait + execve (in standalone)
+## fork + wait + execve
 
 ```txt
 compilation used:
 gcc -Wall -Werror -Wextra -pedantic -std=gnu89 standalone/fork-wait-execve.c
 ```
 
-## super simple shell (in standalone)
+## super simple shell
 
 ```txt
 compilation used:
