@@ -110,3 +110,10 @@ gcc -Wall -Werror -Wextra -pedantic -std=gnu89 standalone/parent-child.c
 compilation used:
 gcc -Wall -Werror -Wextra -pedantic -std=gnu89 standalone/wait.c 
 ```
+
+## fork + wait + execve (in standalone)
+
+```txt
+compilation used:
+gcc -Wall -Werror -Wextra -pedantic -std=gnu89 standalone/fork-wait-execve.c
+```
