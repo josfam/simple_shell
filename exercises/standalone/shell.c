@@ -2,6 +2,7 @@
 #include <stdlib.h>
 #include <sys/types.h>
 #include <unistd.h>
+#include <sys/wait.h>
 
 char *get_prompt_input(void);
 
@@ -14,18 +15,33 @@ int main(void)
 {
 	char *argv[] = {NULL};
 	char *user_input;
+	pid_t fork_num;
+	int status;
 
-	user_input = get_prompt_input();
-
-	if (!user_input)
-		return (-1);
-
-	/* execute command entered by the user */
-	if (execve(user_input, argv, __environ) == -1)
+	while(1)
 	{
-		perror("Execution error");
-	}
+		user_input = get_prompt_input();
 
+		if (!user_input)
+			return (-1);
+
+		fork_num = fork();
+
+		if (fork_num == 0) /* this is a child */
+		{
+			/* execute command entered by the user */
+			if (execve(user_input, argv, __environ) == -1)
+			{
+				perror("Execution error");
+				break;
+			}
+		}
+		else
+		{
+			wait(&status); /* wait for the child to finish */
+		}
+
+	}
 	printf("\n");
 
 	return (0);
