@@ -23,8 +23,10 @@ int main(void)
 		user_input = get_prompt_input();
 
 		if (!user_input)
+		{
+			printf("\n");
 			return (-1);
-
+		}
 		fork_num = fork();
 
 		if (fork_num == 0) /* this is a child */
