@@ -113,3 +113,10 @@ gcc -Wall -Werror -Wextra -pedantic -std=gnu89 standalone/wait.c
 compilation used:
 gcc -Wall -Werror -Wextra -pedantic -std=gnu89 standalone/fork-wait-execve.c
 ```
+
+## super simple shell (in standalone)
+
+```txt
+compilation used:
+gcc -Wall -Werror -Wextra -pedantic -std=gnu89 standalone/shell.c -o shell  
+```
