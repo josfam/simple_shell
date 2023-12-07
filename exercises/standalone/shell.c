@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <sys/types.h>
 
 /**
  * main - Entry point.
@@ -8,7 +9,7 @@
  */
 int main(void)
 {
-	size_t chars_read;
+	ssize_t chars_read;
 	char *input_buff;
 	size_t buff_size;
 
