@@ -120,3 +120,10 @@ gcc -Wall -Werror -Wextra -pedantic -std=gnu89 standalone/fork-wait-execve.c
 compilation used:
 gcc -Wall -Werror -Wextra -pedantic -std=gnu89 standalone/shell.c -o shell  
 ```
+
+## File information
+
+```txt
+compilation used:
+gcc -Wall -Wextra -Werror -pedantic standalone/stat.c
+```
