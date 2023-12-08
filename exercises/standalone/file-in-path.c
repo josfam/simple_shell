@@ -1,8 +1,10 @@
 #include <stdio.h>
 #include <unistd.h>
 #include <string.h>
+#include <stdlib.h>
 
 int has_key(char *environ_var, char *key);
+char **get_key_value(char *environ_var);
 
 /**
  * main - Entry point.
@@ -15,6 +17,7 @@ int main(int argc, char *argv[])
 {
 	char **env; /* To store all environment variables */
 	char *env_item; /* To store one environment variable */
+	char *value; /* store the value of an environment variable */
 
 	env = __environ;
 
@@ -24,12 +27,15 @@ int main(int argc, char *argv[])
 		return (-1);
 	}
 
-	/* Extract and print the PATH variable from the environment */
+	/* Extract and print the PATH variable's value */
 	while (*env != NULL)
 	{
 		env_item = *env;
 		if (has_key(env_item, "PATH"))
-			printf("%s\n", env_item);
+		{
+			value = get_key_value(env_item)[1];
+			printf("%s\n", value);
+		}
 		env++;
 	}
 
@@ -69,4 +75,38 @@ int has_key(char *environ_var, char *key)
 		return (0);
 
 	return (1);
+}
+
+/**
+ * get_key_value - Returns the key and value of the given environment-
+ *                 variable.
+ * @environ_var: The environment variable whose key and value to extract
+ *               and return.
+ * Description: Returns the key and value of the given environment-
+ *              variable.
+ * Return: An array containing the key and value of the provided environment
+ *         variable.
+*/
+char **get_key_value(char *environ_var)
+{
+	char **key_value;
+	char *token, *delim;
+	char *env_var; /* Writable copy of the environment variable */
+	int i;
+
+	env_var = strdup(environ_var);
+	key_value = malloc(2 * sizeof(char *));
+	delim = "=";
+	i = 0;
+
+	token = strtok(env_var, delim);
+
+	while (token != NULL)
+	{
+		key_value[i] = strdup(token);
+		token = strtok(NULL, delim);
+		i++;
+	}
+
+	return (key_value);
 }
