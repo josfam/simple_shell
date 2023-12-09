@@ -1,6 +1,12 @@
 #ifndef SHELL_HEADER
 #define SHELL_HEADER
 
+/* Writes a character to standard out. */
+int _putchar(char ch);
+
+/* Prints a string to standard out. */
+int _puts(char *str);
+
 /* Returns the length of a null-terminated string. */
 int _strlen(char *str);
 
