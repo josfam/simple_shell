@@ -42,7 +42,7 @@ char **_get_tokens(char *str, char *delims)
 	{
 		tokens = malloc(1 * sizeof(char *));
 		tokens[0] = copy;
-		return tokens;
+		return (tokens);
 	}
 
 	tokens = malloc((delim_count + 1) * sizeof(char *));
