@@ -5,6 +5,7 @@
 
 int has_key(char *environ_var, char *key);
 char **get_key_value(char *environ_var);
+char **get_tokens(char *to_split, char *delim);
 
 /**
  * main - Entry point.
@@ -18,6 +19,7 @@ int main(int argc, char *argv[])
 	char **env; /* To store all environment variables */
 	char *env_item; /* To store one environment variable */
 	char *value; /* store the value of an environment variable */
+	char **token_list;
 
 	env = __environ;
 
@@ -31,14 +33,19 @@ int main(int argc, char *argv[])
 	while (*env != NULL)
 	{
 		env_item = *env;
+
 		if (has_key(env_item, "PATH"))
-		{
 			value = get_key_value(env_item)[1];
-			printf("%s\n", value);
-		}
 		env++;
 	}
+	token_list = get_tokens(value, ":");
 
+	/* print every folder in the PATH value */
+	while(*token_list!= NULL)
+	{
+		printf("%s\n", *token_list);
+		token_list++;
+	}
 	return (0);
 }
 
@@ -109,4 +116,47 @@ char **get_key_value(char *environ_var)
 	}
 
 	return (key_value);
+}
+
+/**
+ * get_tokens - Return an array of tokens got by splitting the provided
+ *              string by a given delimeter. 
+ * @to_split: The string to split up.
+ * @delim: The delimiter by which to split up the string.
+ * Description: Return an array of tokens got by splitting the provided
+ *              string by a given delimeter.
+ * Return: An array of tokens got by splitting the provided string by
+ *         a given delimeter.
+*/
+char **get_tokens(char *to_split, char *delim)
+{
+	int token_count, i;
+	char *tally_str, *split_copy, *token;
+	char **token_list;
+
+	tally_str = strdup(to_split);
+	token_count = 0;
+	token = strtok(tally_str, delim);
+
+	/* count how many tokens exist */
+	while(token != NULL)
+	{
+		token_count++;
+		token = strtok(NULL, delim);
+	}
+
+	/* store tokens in an array */
+	split_copy = strdup(to_split);
+	token_list = malloc(token_count * sizeof(char *));
+	i = 0;
+	token = strtok(split_copy, delim);
+
+	while(token != NULL)
+	{
+		token_list[i] = strdup(token);
+		token = strtok(NULL, delim);
+		i++;
+	}
+
+	return (token_list);
 }
