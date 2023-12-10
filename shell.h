@@ -17,4 +17,7 @@ char *_strdup(char *str);
 /* using the given delimiter/delimiters. */
 char **_get_tokens(char *str, char *delims);
 
+/* Shows a prompt, and gets terminal inputs provided at said prompt. */
+char *_get_prompt_input(void);
+
 #endif
