@@ -4,6 +4,7 @@
 #include "shell.h"
 
 int _is_delim(char ch, char *delims);
+int count_tokens(char *str, char *delims);
 
 /**
  * _get_tokens - Returns an array of tokens got by splitting up the
