@@ -21,38 +21,31 @@ int _has_only_delims(char *str, char *delims);
 */
 char **_get_tokens(char *str, char *delims)
 {
-	char *copy, *copyPtr, *token;
-	int delim_count, i;
+	char *tallying, *tokenizing, *token;
+	int token_count, i;
 	char **tokens;
 
 	if (!str || !delims)
 		return (NULL);
 
-	delim_count = 0;
-	copy = _strdup(str);
-	copyPtr = copy;
-
-	while (*copyPtr)
-	{
-		if (_is_delim(*copyPtr, delims))
-			delim_count++;
-		copyPtr++;
-	}
-	copyPtr = copy; /* reset pointer */
+	tallying = _strdup(str);
+	token_count = count_tokens(tallying, delims);
 
 	/* Return an array which points to the provided string */
-	if (delim_count == 0)
+	if (token_count == 0 && !_has_only_delims(tallying, delims))
 	{
 		tokens = malloc(1 * sizeof(char *));
-		tokens[0] = copy;
+		tokens[0] = tallying;
 		return (tokens);
 	}
 
-	/* Allocate as much space as delimiters with one extra space */
-	tokens = malloc((delim_count + 1) * sizeof(char *));
+	/* Allocate space for tokens */
+	tokens = malloc((token_count + 1) * sizeof(char *));
 
+	/* Add each found token to the array of tokens */
 	i = 0;
-	token = strtok(copy, delims);
+	tokenizing = _strdup(str);
+	token = strtok(tokenizing, delims);
 
 	while (token != NULL)
 	{
