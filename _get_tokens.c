@@ -111,3 +111,23 @@ int count_tokens(char *str, char *delims)
 
 	return (token_count);
 }
+
+/**
+ * _has_only_delims - Checks if the provided string is purely composed of only
+ *                  delimiters.
+ * @str: The string to check.
+ * @delims: Delimiters to check for.
+ * Description: Checks if the provided string is purely composed of only
+ *              delimiters.
+ * Return: 1 if the string is purely composed of only tokens, 0 otherwise.
+ */
+int _has_only_delims(char *str, char *delims)
+{
+	while (*str)
+	{
+		if (!(_is_delim(*str, delims)))
+			return (0);
+		str++;
+	}
+	return (1);
+}
