@@ -34,8 +34,9 @@ char **_get_tokens(char *str, char *delims)
 	/* Return an array which points to the provided string */
 	if (token_count == 0 && !_has_only_delims(tallying, delims))
 	{
-		tokens = malloc(1 * sizeof(char *));
+		tokens = malloc(2 * sizeof(char *));
 		tokens[0] = tallying;
+		tokens[1] = NULL;
 		return (tokens);
 	}
 
