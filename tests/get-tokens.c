@@ -27,7 +27,7 @@ int main(void)
 	{
 		separated = _get_tokens(test_strings[i], tokens);
 
-		/* print the names */
+		/* print the tokens */
 		while(*separated)
 		{
 			printf("%s\n", *separated);
