@@ -50,7 +50,7 @@ char **_get_tokens(char *str, char *delims)
 	tokens = malloc((delim_count + 1) * sizeof(char *));
 
 	i = 0;
-	token = _strdup(strtok(copy, delims));
+	token = strtok(copy, delims);
 
 	while (token != NULL)
 	{
