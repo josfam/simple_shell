@@ -13,8 +13,8 @@ int _has_only_delims(char *str, char *delims);
  * @str: The string to split into tokens.
  * @delims: The delimiter/delimiters with which to split the string into
  *          tokens.
- * Return: An array of tokens got by splitting up the provided string using
- *         the given delimeter/delimiters.
+ * Return: A NULL-terminated array of tokens got by splitting up the provided
+ *         string using the given delimeter/delimiters.
  *         An array with one pointer to the original string is returned,
  *         if the string does not contain any delimiter.
  *         NULL is returned if either str or delims is NULL.
@@ -31,7 +31,7 @@ char **_get_tokens(char *str, char *delims)
 	tallying = _strdup(str);
 	token_count = count_tokens(tallying, delims);
 
-	/* Return an array which points to the provided string */
+	/* Return a NULL-terminated array which points to the provided string */
 	if (token_count == 0 && !_has_only_delims(tallying, delims))
 	{
 		tokens = malloc(2 * sizeof(char *));
