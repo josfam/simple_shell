@@ -22,7 +22,7 @@ int main(void)
 			break;
 
 		args = _get_tokens(input, " ");
-		if (_execute(args[0], args, __environ) == -1)
+		if (_exec_in_child(args[0], args, __environ) == -1)
 			break;
 	}
 

@@ -21,6 +21,6 @@ char **_get_tokens(char *str, char *delims);
 char *_get_prompt_input(void);
 
 /* Executes a program/command, inside of a child process. */
-int _execute(char *command, char **args, char **env);
+int _exec_in_child(char *command, char **args, char **env);
 
 #endif
