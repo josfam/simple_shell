@@ -8,18 +8,18 @@
  */
 int main(void)
 {
-	 
 	char *tokens;
 	char **separated;
 	int test_count, i;
-	char *test_strings[4] = {
+	char *test_strings[5] = {
 		"/Marie:Jordan:*/Andre",
 		"/////",
 		":://**'''",
 		"*****ab/c",
+		"Half-remembered-dream"
 		};
 
-	test_count = 4;
+	test_count = 5;
 	tokens = "/:*'";
 
 	for(i = 0; i < test_count; i++)
