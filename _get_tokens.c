@@ -8,8 +8,8 @@ int count_tokens(char *str, char *delims);
 int _has_only_delims(char *str, char *delims);
 
 /**
- * _get_tokens - Returns an array of tokens got by splitting up the
- *               provided string using the given delimiter/delimiters.
+ * _get_tokens - Returns a NULL-terminated array of tokens got by splitting up
+ *               the provided string using the given delimiter/delimiters.
  * @str: The string to split into tokens.
  * @delims: The delimiter/delimiters with which to split the string into
  *          tokens.
@@ -39,7 +39,7 @@ char **_get_tokens(char *str, char *delims)
 		return (tokens);
 	}
 
-	/* Allocate space for tokens */
+	/* Allocate space for tokens and a NULL termination */
 	tokens = malloc((token_count + 1) * sizeof(char *));
 
 	/* Add each found token to the array of tokens */
@@ -53,7 +53,7 @@ char **_get_tokens(char *str, char *delims)
 		token = strtok(NULL, delims);
 		i++;
 	}
-
+	tokens[i] = NULL;
 	return (tokens);
 }
 
