@@ -38,6 +38,7 @@ char **_get_tokens(char *str, char *delims)
 	}
 	copyPtr = copy; /* reset pointer */
 
+	/* Return an array which points to the provided string */
 	if (delim_count == 0)
 	{
 		tokens = malloc(1 * sizeof(char *));
@@ -45,6 +46,7 @@ char **_get_tokens(char *str, char *delims)
 		return (tokens);
 	}
 
+	/* Allocate as much space as delimiters with one extra space */
 	tokens = malloc((delim_count + 1) * sizeof(char *));
 
 	i = 0;
