@@ -17,7 +17,7 @@ int main(void)
 	while (1)
 	{
 		input = _get_prompt_input();
-		/* on input error, CTRL + D, or a bad execution */
+		/* on input error, CTRL + D*/
 		if (!input)
 			break;
 
