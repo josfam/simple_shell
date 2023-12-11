@@ -8,19 +8,30 @@
  */
 int main(void)
 {
-	char *names, *tokens;
-	char **separate_names;
+	 
+	char *tokens;
+	char **separated;
+	int test_count, i;
 
-	names = "/Marie:Jordan:*/Andre";
+	test_count = 3;
 	tokens = "/:*";
-	separate_names = _get_tokens(names, tokens);
-
-	/* print the names */
-	while(*separate_names)
+	char *test_strings[] = {
+		"/Marie:Jordan:*/Andre",
+		"/////",
+		"*****ab/c/"
+		};
+	
+	for(i = 0; i < test_count; i++)
 	{
-		printf("%s\n", *separate_names);
-		separate_names++;
-	}
+		separated = _get_tokens(test_strings[i], tokens);
 
+		/* print the names */
+		while(*separated)
+		{
+			printf("%s\n", *separated);
+			separated++;
+		}
+		printf("----------------\n");
+	}
 	return (0);
 }
