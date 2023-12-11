@@ -12,14 +12,15 @@ int main(void)
 	char *tokens;
 	char **separated;
 	int test_count, i;
-	char *test_strings[3] = {
+	char *test_strings[4] = {
 		"/Marie:Jordan:*/Andre",
 		"/////",
-		"*****ab/c/"
+		":://**'''",
+		"*****ab/c",
 		};
 
-	test_count = 3;
-	tokens = "/:*";
+	test_count = 4;
+	tokens = "/:*'";
 
 	for(i = 0; i < test_count; i++)
 	{

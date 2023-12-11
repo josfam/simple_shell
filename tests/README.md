@@ -18,13 +18,15 @@ $
 
 ```sh
 $ gcc -Wall -Werror -Wextra -pedantic -std=gnu89 _strdup.c _strlen.c _get_tokens.c tests/get-tokens.c
-$ ./a.out                                                                                            
+$ ./a.out
 Marie
 Jordan
 Andre
 ----------------
 ----------------
+----------------
 ab
 c
 ----------------
+$
 ```
