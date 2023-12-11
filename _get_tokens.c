@@ -83,3 +83,30 @@ int _is_delim(char ch, char *delims)
 
 	return (0);
 }
+
+/**
+ * count_tokens - Counts the number of tokens, separated by
+ *                the given delimiters, in the given string.
+ * @str: The string in which to count tokens.
+ * @delims: The delimiters to use when finding tokens.
+ * Description:  Counts the number of tokens, separated by
+ *               the given delimiters, in the given string.
+ * Return: The number of tokens found in the given string.
+ */
+int count_tokens(char *str, char *delims)
+{
+	char *tallying, *token;
+	int token_count;
+
+	tallying = _strdup(str);
+	token_count = 0;
+
+	token = strtok(tallying, delims);
+	while (token != NULL)
+	{
+		token_count++;
+		token = strtok(NULL, delims);
+	}
+
+	return (token_count);
+}
