@@ -12,15 +12,15 @@ int main(void)
 	char *tokens;
 	char **separated;
 	int test_count, i;
-
-	test_count = 3;
-	tokens = "/:*";
-	char *test_strings[] = {
+	char *test_strings[3] = {
 		"/Marie:Jordan:*/Andre",
 		"/////",
 		"*****ab/c/"
 		};
-	
+
+	test_count = 3;
+	tokens = "/:*";
+
 	for(i = 0; i < test_count; i++)
 	{
 		separated = _get_tokens(test_strings[i], tokens);
