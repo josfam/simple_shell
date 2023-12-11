@@ -12,14 +12,17 @@ int _execute(char *command, char **argv, char **env);
 int main(void)
 {
 	char *input;
-	char *args[] = {NULL};
+	char **args;
 
 	while (1)
 	{
 		input = _get_prompt_input();
-
 		/* on input error, CTRL + D, or a bad execution */
-		if (!input || _execute(input, args, __environ) == -1)
+		if (!input)
+			break;
+
+		args = _get_tokens(input, " ");
+		if (_execute(args[0], args, __environ) == -1)
 			break;
 	}
 
