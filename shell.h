@@ -16,6 +16,9 @@ char *_strdup(char *str);
 /* Compares two strings. */
 int _strcmp(char *s1, char *s2);
 
+/* Returns the argument count for the program/command entered. */
+int _argc(char **argv);
+
 /* Returns an array of tokens got by splitting up the provided string */
 /* using the given delimiter/delimiters. */
 char **_get_tokens(char *str, char *delims);
