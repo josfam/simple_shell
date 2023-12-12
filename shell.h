@@ -7,6 +7,9 @@ int _putchar(char ch);
 /* Prints a string to standard out. */
 int _puts(char *str);
 
+/* Checks if a character is a digit. */
+int _isdigit(int c);
+
 /* Returns the length of a null-terminated string. */
 int _strlen(char *str);
 
