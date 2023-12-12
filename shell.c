@@ -20,6 +20,8 @@ int main(void)
 			break;
 
 		args = _get_tokens(input, " ");
+		if (_is_exit_call(args))
+			__exit();
 		if (_exec_in_child(args[0], args) == -1)
 			break;
 	}

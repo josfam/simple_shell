@@ -29,4 +29,10 @@ char *_get_prompt_input(void);
 /* Executes a program/command, inside of a child process. */
 int _exec_in_child(char *command, char **args);
 
+/* Checks if the command is a call to the exit command. */
+int _is_exit_call(char **command);
+
+/* Exits the shell program. */
+void __exit(void);
+
 #endif
