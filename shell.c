@@ -2,8 +2,6 @@
 #include <unistd.h>
 #include "shell.h"
 
-int _execute(char *command, char **argv, char **env);
-
 /**
  * main - Entry point.
  * Description: The main entry point of the program.

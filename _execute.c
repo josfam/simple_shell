@@ -2,6 +2,7 @@
 #include <stdio.h>
 #include <sys/types.h>
 #include <sys/wait.h>
+#include "shell.h"
 
 /**
  * _exec_in_child - Executes a program/command, inside of a child process.
