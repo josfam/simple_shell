@@ -13,6 +13,9 @@ int _strlen(char *str);
 /* Return a duplicate of the provided string. */
 char *_strdup(char *str);
 
+/* Compares two strings. */
+int _strcmp(char *s1, char *s2);
+
 /* Returns an array of tokens got by splitting up the provided string */
 /* using the given delimiter/delimiters. */
 char **_get_tokens(char *str, char *delims);
