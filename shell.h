@@ -30,7 +30,7 @@ char **_get_tokens(char *str, char *delims);
 char *_get_prompt_input(void);
 
 /* Executes a program/command, inside of a child process. */
-int _exec_in_child(char *command, char **args);
+int _exec_in_child(char *command, char **args, char **argv);
 
 /* Checks if the command is a call to the exit command. */
 int _is_exit_call(char **command);

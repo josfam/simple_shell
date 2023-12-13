@@ -4,10 +4,12 @@
 
 /**
  * main - Entry point.
+ * @argc: The number of arguments.
+ * @argv: The array of arguments.
  * Description: The main entry point of the program.
  * Return: 0 if successful, Non-zero otherwise.
  */
-int main(void)
+int main(__attribute__((unused)) int argc, char **argv)
 {
 	char *input;
 	char **args;
@@ -22,7 +24,7 @@ int main(void)
 		args = _get_tokens(input, " ");
 		if (_is_exit_call(args))
 			__exit();
-		if (_exec_in_child(args[0], args) == -1)
+		if (_exec_in_child(args[0], args, argv) == -1)
 			break;
 	}
 
