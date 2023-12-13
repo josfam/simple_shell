@@ -24,7 +24,7 @@ int main(__attribute__((unused)) int argc, char **argv)
 		args = _get_tokens(input, " ");
 		if (_is_exit_call(args))
 			__exit();
-		if (_exec_in_child(args[0], args, argv) == -1)
+		if (_exec_in_child(args, argv) == -1)
 			break;
 	}
 
