@@ -6,16 +6,18 @@
 
 /**
  * _exec_in_child - Executes a program/command, inside of a child process.
- * @command: The program/command to execute.
  * @args: Command line arguments for the program being executed.
  * @argv: Argument vector first used when invoking the shell.
  * Description: Executes a program/command, inside of a child process.
  * Return: 0 on success, -1 on error.
 */
-int _exec_in_child(char *command, char **args, char **argv)
+int _exec_in_child(char **args, char **argv)
 {
 	pid_t fork_num;
 	int wait_status;
+	char *command;
+
+	command = args[0];
 
 	fork_num = fork();
 	if (fork_num == -1)
