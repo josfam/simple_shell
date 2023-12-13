@@ -6,10 +6,11 @@
  * main - Entry point.
  * @argc: The number of arguments.
  * @argv: The array of arguments.
+ * @env: Environment variables from the current environment.
  * Description: The main entry point of the program.
  * Return: 0 if successful, Non-zero otherwise.
  */
-int main(__attribute__((unused)) int argc, char **argv)
+int main(__attribute__((unused)) int argc, char **argv, char **env)
 {
 	char *input;
 	char **args;
@@ -24,7 +25,7 @@ int main(__attribute__((unused)) int argc, char **argv)
 		args = _get_tokens(input, " ");
 		if (_is_exit_call(args))
 			__exit();
-		if (_exec_in_child(args, argv) == -1)
+		if (_exec_in_child(args, argv, env) == -1)
 			break;
 	}
 
