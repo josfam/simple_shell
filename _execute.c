@@ -8,7 +8,7 @@
  * _exec_in_child - Executes a program/command, inside of a child process.
  * @args: Command line arguments for the program being executed.
  * @argv: Argument vector first used when invoking the shell.
- * @env: Environment variables from the current environment. 
+ * @env: Environment variables from the current environment.
  * Description: Executes a program/command, inside of a child process.
  * Return: 0 on success, -1 on error.
 */
