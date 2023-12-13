@@ -30,6 +30,10 @@ int main(__attribute__((unused)) int argc, char **argv, char **env)
 			break;
 
 		args = _get_tokens(input, " ");
+
+		if (_is_exit_call(args)) /* exit immediately */
+			__exit();
+
 		directories = malloc(MAX_DIRECTORIES_LEN);
 
 		if (directories == NULL)
@@ -60,9 +64,6 @@ int main(__attribute__((unused)) int argc, char **argv, char **env)
 		}
 
 		if (_execvp(executable_path, args) == -1)
-
-		if (_is_exit_call(args))
-			__exit();
 
 		if (_exec_in_child(args, argv, env) == -1)
 			break;
