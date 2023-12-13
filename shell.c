@@ -31,10 +31,12 @@ int main(__attribute__((unused)) int argc, char **argv, char **env)
 
 		args = _get_tokens(input, " ");
 
-		if (_is_exit_call(args)) /* exit immediately */
+		if (_is_exit_call(args))
+		{
+			/* exit immediately */
 			free(args);
 			__exit();
-
+		}
 		directories = malloc(MAX_DIRECTORIES_LEN);
 
 		if (directories == NULL)
