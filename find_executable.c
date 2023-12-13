@@ -43,7 +43,6 @@ char *find_executable(char *command, char *directories)
 	char *token = strtok(directories, ":");
 	char *path = NULL;
 	char *tmp_path;
-	char *tmp;
 
 	/* Return the original command, if it is a path to some folder */
 	if (_strchr(command, '/') != NULL)
@@ -58,29 +57,12 @@ char *find_executable(char *command, char *directories)
 			return (NULL);
 		}
 
+		/* Form a string of the pattern <directory-path>/command */
+		path = concatenate_strings(tmp_path, command);
 		if (path == NULL)
 		{
-			/* Form a string of the pattern <directory-path>/command */
-			path = concatenate_strings(tmp_path, command);
-			if (path == NULL)
-			{
-				free(tmp_path);
-				return (NULL);
-			}
-		}
-
-		else
-		{
-			/* Form a string of the pattern <directory-path>/command */
-			tmp = concatenate_strings(path, command);
-			if (tmp == NULL)
-			{
-				free(tmp_path);
-				free(tmp);
-				return (NULL);
-			}
-			free(path);
-			path = tmp;
+			free(tmp_path);
+			return (NULL);
 		}
 
 		/* return the full path to the executable if the path indeed points */
@@ -91,11 +73,11 @@ char *find_executable(char *command, char *directories)
 			return (path);
 		}
 
-		/* prepare to search the next directory for the executable */
+		/* prepare to search the next directory in PATH for the executable */
 		free(tmp_path);
 		free(path);
 		path = NULL;
-		token = strtok(NULL, ":"); /* get the next directory in directories */
+		token = strtok(NULL, ":");
 	}
 
 	/* the executable was not found in the PATH */
