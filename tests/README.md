@@ -33,3 +33,59 @@ Half-remembered-dream
 ----------------
 $
 ```
+
+## str-compare.c
+
+```sh
+$ gcc -Wall -Werror -Wextra -pedantic -std=gnu89 _strcmp.c _strlen.c tests/str-compare.c
+$ ./a.out
+ABC = ABC
+abc > ab
+aba < abz
+abj > abc
+ = 
+ < a
+$
+```
+
+## str-to-int.c
+
+```sh
+$ gcc -Wall -Werror -Wextra -pedantic -std=gnu89 _strcmp.c _strlen.c _atoi.c _isdigit.c tests/str-to-int.c
+$ ./a.out
+_atoi   | atoi
+
+0       | 0
+10      | 10
+---------------
+
+_atoi   | atoi
+
+0       | 0
+10      | 10
+---------------
+
+_atoi   | atoi
+
+2       | 2
+12      | 12
+---------------
+
+_atoi   | atoi
+
+500     | 500
+510     | 510
+---------------
+
+_atoi   | atoi
+
+-800    | -800
+-790    | -790
+---------------
+
+_atoi   | atoi
+
+0       | 0
+10      | 10
+---------------
+```

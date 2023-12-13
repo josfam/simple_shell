@@ -6,15 +6,19 @@
 
 /**
  * _exec_in_child - Executes a program/command, inside of a child process.
- * @command: The program/command to execute.
  * @args: Command line arguments for the program being executed.
+ * @argv: Argument vector first used when invoking the shell.
+ * @env: Environment variables from the current environment.
  * Description: Executes a program/command, inside of a child process.
  * Return: 0 on success, -1 on error.
 */
-int _exec_in_child(char *command, char **args)
+int _exec_in_child(char **args, char **argv, char **env)
 {
 	pid_t fork_num;
 	int wait_status;
+	char *command;
+
+	command = args[0];
 
 	fork_num = fork();
 	if (fork_num == -1)
@@ -22,11 +26,12 @@ int _exec_in_child(char *command, char **args)
 		perror("Error");
 		return (-1);
 	}
+
 	if (fork_num == 0) /* Child process */
 	{
-		if (execve(command, args, NULL) == -1)
+		if (execve(command, args, env) == -1)
 		{
-			perror("Error");
+			perror(argv[0]);
 		}
 		_exit(0);
 	}

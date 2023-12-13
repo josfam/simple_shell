@@ -27,7 +27,7 @@ char *_get_prompt_input(void)
 	while (1)
 	{
 		/* show the prompt */
-		_puts("($) ");
+		_puts("$ ");
 
 		chars_read = getline(&input_buff, &buff_size, stdin);
 
