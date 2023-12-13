@@ -44,8 +44,7 @@ char *find_executable(char *command, char *directories)
 	char *path = NULL;
 	char *tmp_path;
 
-	/* Return the original command, if it is a path to some folder */
-	if (_strchr(command, '/') != NULL)
+	if (_strchr(command, '/') != NULL) /* the command had a directory in it */
 		return (_strdup(command));
 
 	while (token != NULL)
@@ -57,7 +56,6 @@ char *find_executable(char *command, char *directories)
 			return (NULL);
 		}
 
-		/* Form a string of the pattern <directory-path>/command */
 		path = concatenate_strings(tmp_path, command);
 		if (path == NULL)
 		{
@@ -80,7 +78,6 @@ char *find_executable(char *command, char *directories)
 		token = strtok(NULL, ":");
 	}
 
-	/* the executable was not found in the PATH */
 	free(path);
-	return (NULL);
+	return (NULL); /* the executable was not found in the PATH */
 }
