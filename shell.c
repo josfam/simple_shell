@@ -20,6 +20,7 @@ int main(__attribute__((unused)) int argc, char **argv, char **env)
 	char *directories;
 	char *executable_path;
 	char *env_path;
+	const int MAX_DIRECTORIES_LEN = 1024;
 
 	while (1)
 	{
@@ -28,7 +29,7 @@ int main(__attribute__((unused)) int argc, char **argv, char **env)
 		if (!input)
 			break;
 		args = _get_tokens(input, " ");
-		directories = malloc(1024);
+		directories = malloc(MAX_DIRECTORIES_LEN);
 		if (directories == NULL)
 		{
 			perror("Error allocating memory");
@@ -42,8 +43,8 @@ int main(__attribute__((unused)) int argc, char **argv, char **env)
 			free(directories);
 			return (EXIT_FAILURE);
 		}
-		_strncpy(directories, env_path, 1023);
-		directories[1023] = '\0';
+		_strncpy(directories, env_path, MAX_DIRECTORIES_LEN - 1);
+		directories[MAX_DIRECTORIES_LEN - 1] = '\0';
 		free(env_path);
 		command = args[0];
 		executable_path = find_executable(command, directories);
