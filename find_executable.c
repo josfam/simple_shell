@@ -3,7 +3,7 @@
 #include "shell.h"
 #include <unistd.h>
 #include <stdlib.h>
-int _strcmpr(const char *str1, const char *str2, int n);
+
 /**
  * is_executable - checks if the command can be executed
  * @path: the path of the command
