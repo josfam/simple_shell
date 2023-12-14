@@ -7,13 +7,14 @@
 /**
  * _get_prompt_input - Shows a terminal prompt, and gets terminal
  *                    inputs provided at said prompt.
+ * @is_interactive: Whether the shell is being invoked in interactive mode.
  * Description: Shows a terminal prompt, and gets terminal
  *              inputs provided at said prompt.
  *              If no input is provided, the user is re-prompted.
  *              If CTRL+D is pressed, the program terminates.
  * Return: The input entered (if any), or NULL on error.
 */
-char *_get_prompt_input(void)
+char *_get_prompt_input(int is_interactive)
 {
 	ssize_t chars_read;
 	char *input_buff;
@@ -26,8 +27,9 @@ char *_get_prompt_input(void)
 
 	while (1)
 	{
-		/* show the prompt */
-		_puts("$ ");
+		/* show the prompt only in interactive mode */
+		if (is_interactive)
+			_puts("$ ");
 
 		chars_read = getline(&input_buff, &buff_size, stdin);
 

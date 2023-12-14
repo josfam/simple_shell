@@ -20,11 +20,14 @@ int main(__attribute__((unused)) int argc, char **argv, char **env)
 	char *directories;
 	char *executable_path;
 	char *env_path;
+	int is_interactive;
 	const int MAX_DIRECTORIES_LEN = 1024;
+
+	is_interactive = isatty(STDIN_FILENO);
 
 	while (1)
 	{
-		input = _get_prompt_input();
+		input = _get_prompt_input(is_interactive);
 		/* on input error, CTRL + D*/
 		if (!input)
 			break;
