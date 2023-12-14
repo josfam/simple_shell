@@ -8,7 +8,14 @@
  */
 int main(void)
 {
-	char *strs[5] = {"  /bin/ls  ", "", "   a", "a   ", "   "};
+	char *strs[5] = {
+		"  /bin/ls  ", 
+		"", 
+		"   a", 
+		"a   ",
+		"   "
+		};
+
 	int strs_count, i;
 	char *stripped;
 

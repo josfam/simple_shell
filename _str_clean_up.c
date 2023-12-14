@@ -4,30 +4,38 @@
 
 /**
  * _strip - Strip whitespace from both ends of a string.
+ * @str: The string whose whitespace to strip.
+ * Description: Strip whitespace from both ends of a string.
+ * Return: The string without whitespace.
  */
-char * _strip(char *str)
+char *_strip(char *str)
 {
-	char *startPtr, *endPtr;
+	char *startPtr, *endPtr, *copy;
 	int str_len;
 
 	if (!str)
 		return (NULL);
 
-	str_len = _strlen(str);
+	copy = _strdup(str);
+	str_len = _strlen(copy);
+
 	if (str_len == 0)
-		return "";
+		return ("");
 
-	startPtr = str;
-	endPtr = str + (str_len - 1); /* placed right before the \0 */
+	startPtr = copy;
+	endPtr = copy + str_len; /* placed at the \0 */
 
-	while(*startPtr == ' ' && startPtr != endPtr)
+	while ((startPtr < endPtr) && (*startPtr == ' '))
 		startPtr++;
 
 	if (startPtr == endPtr) /* string was all white space */
-		return "";
+		return ("");
 
-	// #if 0
+	while ((startPtr < endPtr) && (*(endPtr - 1) == ' '))
+	{
+		endPtr--;
+	}
 
-	// #endif
-	return startPtr;
+	*endPtr = '\0';
+	return (startPtr);
 }

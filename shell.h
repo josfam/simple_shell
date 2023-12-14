@@ -20,7 +20,7 @@ int _is_number(char *str);
 int _strlen(char *str);
 
 /* Remove whitespace from both ends of a string. */
-char * _strip(char *str);
+char *_strip(char *str);
 
 /* Return a duplicate of the provided string. */
 char *_strdup(char *str);
