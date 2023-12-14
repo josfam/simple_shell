@@ -47,6 +47,9 @@ int _is_exit_call(char **command);
 /* Exits the shell program. */
 void __exit(void);
 
+/* Frees all memory locations provided. */
+void _free_all(int how_many, ...);
+
 char *_strcat(char *dest, char *src);
 
 char *_strcpy(char *dest, const char *src);
