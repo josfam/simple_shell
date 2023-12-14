@@ -75,7 +75,8 @@ int main(__attribute__((unused)) int argc, char **argv, char **env)
 			break;
 	}
 
-	_puts("\n");
+	if (is_interactive)
+		_puts("\n");
 
 	/* handle memory leaks */
 	free(args);
