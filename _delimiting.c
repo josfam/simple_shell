@@ -21,7 +21,10 @@ int _has_only_delims(char *str, char *delims)
 	while (*copyPtr)
 	{
 		if (!(_is_delim(*copyPtr, delims)))
+		{
+			free(copy);
 			return (0);
+		}
 		copyPtr++;
 	}
 	free(copy);
