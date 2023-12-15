@@ -22,7 +22,7 @@ int _execvp(char *command, char **args, char **argv, char **env)
 	if (access(command, X_OK) != 0)
 	{
 		perror(program);
-		return (-1);
+		return (-2);
 	}
 	fork_num = fork();
 	if (fork_num == -1)
