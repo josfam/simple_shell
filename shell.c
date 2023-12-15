@@ -17,7 +17,7 @@ void *get_dir_mem(int max_space, char *program, char *input, char **args);
 int main(__attribute__((unused)) int argc, char **argv, char **env)
 {
 	char **args;
-	char *input, *command, *dirs, *executable_path, *env_path;
+	char *input, *command, *dir_mem, *executable_path, *env_path;
 	int is_interactive;
 	const int MAX_DIR_LEN = 1024;
 
@@ -39,21 +39,21 @@ int main(__attribute__((unused)) int argc, char **argv, char **env)
 			__exit();
 		}
 
-		dirs = get_dir_mem(MAX_DIR_LEN, argv[0], input, args);
+		dir_mem = get_dir_mem(MAX_DIR_LEN, argv[0], input, args);
 
 		env_path = get_path();
 		if (env_path == NULL)
 		{
 			perror("Error getting current directory");
-			_free_all(2, input, dirs);
+			_free_all(2, input, dir_mem);
 			return (EXIT_FAILURE);
 		}
 
-		_strncpy(dirs, env_path, MAX_DIR_LEN - 1);
-		dirs[MAX_DIR_LEN - 1] = '\0';
+		_strncpy(dir_mem, env_path, MAX_DIR_LEN - 1);
+		dir_mem[MAX_DIR_LEN - 1] = '\0';
 		free(env_path);
 		command = args[0];
-		executable_path = find_executable(command, dirs);
+		executable_path = find_executable(command, dir_mem);
 
 		if (executable_path == NULL)
 		{
@@ -69,7 +69,7 @@ int main(__attribute__((unused)) int argc, char **argv, char **env)
 		_puts("\n");
 
 	/* handle memory leaks */
-	_free_all(3, args, input, dirs);
+	_free_all(3, args, input, dir_mem);
 
 	return (0);
 }
