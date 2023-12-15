@@ -75,7 +75,7 @@ char *_strcat(char *dest, char *src);
 
 char *_strcpy(char *dest, const char *src);
 
-char *concatenate_strings(char *str1, char *str2);
+char *concat_strs(char *str1, char *str2);
 
 char *_strchr(const char *s, int c);
 
