@@ -4,7 +4,7 @@
 #include <sys/types.h>
 #include <stdio.h>
 
-void *get_dir_mem(int max_space, char *program, char *input, char **args);
+char *get_dir_mem(int max_space, char *program, char *input, char **args);
 
 /**
  * main - Entry point.
@@ -83,7 +83,7 @@ int main(__attribute__((unused)) int argc, char **argv, char **env)
  * Description: Allocates and returns memory space for directories in PATH.
  * Return: Memory space.
  */
-void *get_dir_mem(int max_space, char *program, char *input, char **args)
+char *get_dir_mem(int max_space, char *program, char *input, char **args)
 {
 	void *dir_memory;
 
@@ -96,5 +96,7 @@ void *get_dir_mem(int max_space, char *program, char *input, char **args)
 		exit(EXIT_FAILURE);
 	}
 
-	return (dir_memory);
+	return ((char *)dir_memory);
+}
+
 }
