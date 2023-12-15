@@ -42,7 +42,9 @@ char *_get_prompt_input(int is_interactive)
 
 		/* re-prompt if no input was provided or if input was just spaces */
 		if (_has_only_delims(input_buff, " \n") || chars_read == 1)
+		{
 			continue;
+		}
 		else
 			break;
 	}

@@ -35,6 +35,9 @@ int _argc(char **argv);
 /* using the given delimiter/delimiters. */
 char **_get_tokens(char *str, char *delims);
 
+/* Checks if the provided character is a delimiter. */
+int _is_delim(char ch, char *delims);
+
 /* Checks if a string is composed of only delimiters */
 int _has_only_delims(char *str, char *delims);
 
