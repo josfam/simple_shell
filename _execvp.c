@@ -36,6 +36,7 @@ int _execvp(char *command, char **args, char **argv, char **env)
 		if (execve(command, args, env) == -1)
 		{
 			perror(program);
+			_exit(EXIT_FAILURE);
 		}
 		_exit(0);
 	}
