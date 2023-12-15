@@ -15,17 +15,10 @@ void __exit(void)
  * Description: Checks if the command is a call to the exit command.
  * Return: 1 if the command was a call to exit, 0 if it was not.
 */
-int _is_exit_call(char **command)
+int _is_exit_call(char *command)
 {
-	if (_strcmp(command[0], "exit") != 0)
+	if (_strcmp(command, "exit") != 0)
 		return (0);
-
-	/* exit can only be called alone or with one other argument. */
-	if (_argc(command) > 2)
-	{
-		_puts("exit: too many arguments\n");
-		_exit(1);
-	}
 
 	return (1);
 }

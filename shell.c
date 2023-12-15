@@ -31,13 +31,13 @@ int main(__attribute__((unused)) int argc, char **argv, char **env)
 		if (!input)
 			break;
 
-		args = _get_tokens(input, DELIMS);
-
-		if (_is_exit_call(args)) /* exit immediately */
+		if (_is_exit_call(input)) /* exit immediately */
 		{
-			free(args);
+			free(input);
 			__exit();
 		}
+
+		args = _get_tokens(input, DELIMS);
 
 		dir_mem = get_dir_mem(MAX_DIR_LEN, argv[0], input, args);
 		env_path = get_path_dirs(argv[0], input, dir_mem, args);
@@ -66,7 +66,6 @@ int main(__attribute__((unused)) int argc, char **argv, char **env)
 
 	if (is_interactive)
 		_puts("\n");
-
 
 	return (0);
 }
