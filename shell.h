@@ -62,6 +62,9 @@ void __exit(void);
 /* Frees all memory locations provided. */
 void _free_all(int how_many, ...);
 
+/* Frees memory for an array of tokens. */
+void _free_tokens(char **tokens);
+
 char *_strcat(char *dest, char *src);
 
 char *_strcpy(char *dest, const char *src);

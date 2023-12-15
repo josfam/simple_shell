@@ -28,3 +28,23 @@ void _free_all(int how_many, ...)
 
 	va_end(args);
 }
+
+/**
+ * _free_tokens - Frees memory allocated for storing tokens.
+ * @tokens: The array of pointers, which to free.
+ * Description: Frees memory allocated for storing tokens.
+ * Return: Nothing.
+*/
+void _free_tokens(char **tokens)
+{
+	int i;
+
+	i = 0;
+
+	for (i = 0; tokens[i] != NULL; i++)
+	{
+		free(tokens[i]);
+	}
+
+	free(tokens);
+}
