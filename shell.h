@@ -59,6 +59,12 @@ int _is_exit_call(char *command);
 /* Exits the shell program. */
 void __exit(void);
 
+/* Checks if the command is a call to the exit command. */
+int _is_env_call(char *command);
+
+/* Prints the current environment. */
+void _print_env(char **env);
+
 /* Frees all memory locations provided. */
 void _free_all(int how_many, ...);
 

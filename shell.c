@@ -36,6 +36,12 @@ int main(__attribute__((unused)) int argc, char **argv, char **env)
 			free(input);
 			__exit();
 		}
+		if (_is_env_call(input)) /* print the environment*/
+		{
+			_print_env(env);
+			free(input);
+			continue;
+		}
 
 		args = _get_tokens(input, DELIMS);
 
