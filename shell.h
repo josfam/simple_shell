@@ -77,6 +77,9 @@ char *_strcpy(char *dest, const char *src);
 
 char *concat_strs(char *str1, char *str2);
 
+/* Concatenates all given strings together. */
+char *_concat_all(int how_many, ...);
+
 char *_strchr(const char *s, int c);
 
 int _strcmpr(const char *str1, const char *str2, int n);
