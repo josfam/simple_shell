@@ -10,7 +10,7 @@
  * @env: The environment variables passed to this process.
  * Description:Executes the program without calling fork if the
  * command doesn't exist.
- * Return: 0 on success, -1 on a fork error, and 
+ * Return: 0 on success, -1 on a fork error, and
  *         -2 on an execution permission error.
  */
 int _execvp(char *command, char **args, char **argv, char **env)

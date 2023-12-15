@@ -105,7 +105,7 @@ int count_tokens(char *str, char *delims)
 		token_count++;
 		token = strtok(NULL, delims);
 	}
-	free (tallying);
+	free(tallying);
 	return (token_count);
 }
 
