@@ -14,12 +14,8 @@
  */
 int main(__attribute__((unused)) int argc, char **argv, char **env)
 {
-	char *input;
 	char **args;
-	char *command;
-	char *directories;
-	char *executable_path;
-	char *env_path;
+	char *input, *command, *directories, *executable_path, *env_path;
 	int is_interactive;
 	const int MAX_DIRECTORIES_LEN = 1024;
 
