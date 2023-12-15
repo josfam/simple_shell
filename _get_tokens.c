@@ -44,6 +44,8 @@ char **_get_tokens(char *str, char *delims)
 
 	/* Allocate space for tokens and a NULL termination */
 	tokens = malloc((token_count + 1) * sizeof(char *));
+	if (tokens == NULL)
+		return (NULL);
 
 	/* Add each found token to the array of tokens */
 	i = 0;
