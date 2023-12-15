@@ -34,6 +34,7 @@ char **_get_tokens(char *str, char *delims)
 	/* Return a NULL-terminated array which points to the provided string */
 	if (token_count == 0 && !_has_only_delims(tallying, delims))
 	{
+		free(tallying);
 		tokens = malloc(2 * sizeof(char *));
 		tokens[0] = tallying;
 		tokens[1] = NULL;
@@ -55,6 +56,7 @@ char **_get_tokens(char *str, char *delims)
 		i++;
 	}
 	tokens[i] = NULL;
+	_free_all(2, tallying, tokenizing);
 	return (tokens);
 }
 
@@ -103,7 +105,7 @@ int count_tokens(char *str, char *delims)
 		token_count++;
 		token = strtok(NULL, delims);
 	}
-
+	free (tallying);
 	return (token_count);
 }
 
