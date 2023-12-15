@@ -3,7 +3,7 @@
 #include "shell.h"
 #include <sys/types.h>
 #include <stdio.h>
-int _execvp(char *command, char **arg);
+
 /**
  * main - Entry point.
  * @argc: The number of arguments.
@@ -69,9 +69,7 @@ int main(__attribute__((unused)) int argc, char **argv, char **env)
 			return (EXIT_FAILURE);
 		}
 
-		if (_execvp(executable_path, args) == -1)
-
-		if (_exec_in_child(args, argv, env) == -1)
+		if (_execvp(executable_path, args, argv, env) == -1)
 			break;
 	}
 

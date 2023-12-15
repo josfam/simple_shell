@@ -41,6 +41,9 @@ char *_get_prompt_input(int is_interactive);
 /* Executes a program/command, inside of a child process. */
 int _exec_in_child(char **args, char **argv, char **env);
 
+/* Executes a program/command, inside of a child process. */
+int _execvp(char *command, char **args, char **argv, char **env);
+
 /* Checks if the command is a call to the exit command. */
 int _is_exit_call(char **command);
 
