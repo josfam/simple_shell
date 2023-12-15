@@ -52,12 +52,17 @@ int main(__attribute__((unused)) int argc, char **argv, char **env)
 
 		if (executable_path == NULL)
 		{
+			free(executable_path);
 			perror("Error finding executable");
 			return (EXIT_FAILURE);
 		}
 
 		if (_execvp(executable_path, args, argv, env) == -1)
+		{
+			free(executable_path);
 			break;
+		}
+		free(executable_path);
 	}
 
 	if (is_interactive)
