@@ -32,7 +32,7 @@ char **_get_tokens(char *str, char *delims)
 	token_count = count_tokens(tallying, delims);
 
 	/* Return a NULL-terminated array which points to the provided string */
-	if (token_count == 0 && !_has_only_delims(tallying, delims))
+	if (token_count == 0)
 	{
 		tokens = malloc(2 * sizeof(char *));
 		tokens[0] = tallying;
