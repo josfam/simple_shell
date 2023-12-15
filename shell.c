@@ -48,8 +48,7 @@ int main(__attribute__((unused)) int argc, char **argv, char **env)
 		if (env_path == NULL)
 		{
 			perror("Error getting current directory");
-			free(input);
-			free(directories);
+			_free_all(2, input, directories);
 			return (EXIT_FAILURE);
 		}
 
@@ -73,9 +72,7 @@ int main(__attribute__((unused)) int argc, char **argv, char **env)
 		_puts("\n");
 
 	/* handle memory leaks */
-	free(args);
-	free(input);
-	free(directories);
+	_free_all(3, args, input, directories);
 
 	return (0);
 }
