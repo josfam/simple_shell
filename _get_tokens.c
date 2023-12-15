@@ -123,11 +123,18 @@ int count_tokens(char *str, char *delims)
  */
 int _has_only_delims(char *str, char *delims)
 {
-	while (*str)
+	char *copy;
+	char *copyPtr;
+
+	copy = _strdup(str);
+	copyPtr = copy;
+
+	while (*copyPtr)
 	{
-		if (!(_is_delim(*str, delims)))
+		if (!(_is_delim(*copyPtr, delims)))
 			return (0);
-		str++;
+		copyPtr++;
 	}
+	free(copy);
 	return (1);
 }
