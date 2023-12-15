@@ -32,6 +32,7 @@ int main(__attribute__((unused)) int argc, char **argv, char **env)
 			break;
 
 		args = _get_tokens(input, " ");
+		free(input);
 
 		if (_is_exit_call(args))
 		{
@@ -111,7 +112,7 @@ char *get_path_dirs(char *program, char *input, char *dir_mem, char **args)
 	if (path_dirs == NULL)
 	{
 		perror(program);
-		_free_all(3, input, dir_mem, args);
+		_free_all(4, input, dir_mem, args);
 		exit(EXIT_FAILURE);
 	}
 
