@@ -5,7 +5,7 @@
 #include <stdio.h>
 
 char *get_dir_mem(int max_space, char *program, char *input, char **args);
-char *get_path_dirs(char *program, char *input, char *dir_mem);
+char *get_path_dirs(char *program, char *input, char *dir_mem, char **args);
 
 /**
  * main - Entry point.
@@ -41,7 +41,7 @@ int main(__attribute__((unused)) int argc, char **argv, char **env)
 		}
 
 		dir_mem = get_dir_mem(MAX_DIR_LEN, argv[0], input, args);
-		env_path = get_path_dirs(argv[0], input, dir_mem);
+		env_path = get_path_dirs(argv[0], input, dir_mem, args);
 
 		_strncpy(dir_mem, env_path, MAX_DIR_LEN - 1);
 		dir_mem[MAX_DIR_LEN - 1] = '\0';
@@ -98,11 +98,12 @@ char *get_dir_mem(int max_space, char *program, char *input, char **args)
  * @program: The first argument of main's argv.
  * @input: Un-tokenized commands passed into the custom shell's prompt.
  * @dir_mem: Memory that will contain directories from the PATH variable.
+ * @args: Tokenized commands passed into the custom shell's prompt.
  * Description: Finds and returns the directories in the PATH variable.
  * Return: Directories in the PATH variable.
  *         Exits if no such directories exited.
 */
-char *get_path_dirs(char *program, char *input, char *dir_mem)
+char *get_path_dirs(char *program, char *input, char *dir_mem, char **args)
 {
 	char *path_dirs;
 
@@ -110,7 +111,7 @@ char *get_path_dirs(char *program, char *input, char *dir_mem)
 	if (path_dirs == NULL)
 	{
 		perror(program);
-		_free_all(2, input, dir_mem);
+		_free_all(3, input, dir_mem, args);
 		exit(EXIT_FAILURE);
 	}
 
