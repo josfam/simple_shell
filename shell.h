@@ -1,6 +1,9 @@
 #ifndef SHELL_HEADER
 #define SHELL_HEADER
 
+/* Delimiters with which to tokenize inputs */
+#define DELIMS " \n"
+
 /* Writes a character to standard out. */
 int _putchar(char ch);
 
