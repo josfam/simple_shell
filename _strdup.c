@@ -19,6 +19,8 @@ char *_strdup(char *str)
 	/* allocate as much memory as the original string */
 	str_len = _strlen(str);
 	duplicate = (char *)malloc((str_len + 1) * sizeof(char));
+	if (!duplicate)
+		return (NULL);
 
 	/* copy over the characters */
 	for (i = 0; i < str_len; i++)
