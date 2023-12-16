@@ -50,13 +50,13 @@ char *find_executable(char *command, char *directories)
 		return (NULL);
 	while (token != NULL)
 	{
-		tmp_path = concatenate_strings(token, "/");
+		tmp_path = concat_strs(token, "/");
 
 		if (tmp_path == NULL)
 		{
 			return (NULL);
 		}
-		path = concatenate_strings(tmp_path, command);
+		path = concat_strs(tmp_path, command);
 		if (path == NULL)
 		{
 			free(tmp_path);
