@@ -60,7 +60,6 @@ int main(__attribute__((unused)) int argc, char **argv, char **env)
 			_free_tokens(args);
 			_free_all(2, executable_path, dir_mem);
 			perror("Error finding executable");
-			return (EXIT_FAILURE);
 		}
 
 		if (_execvp(executable_path, args, argv, env) == -1)

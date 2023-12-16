@@ -46,7 +46,8 @@ char *find_executable(char *command, char *directories)
 
 	if (_strchr(command, '/') != NULL) /* the command had a directory in it */
 		return (_strdup(command));
-
+	if (directories == NULL || directories[0] == '\0')
+		return (NULL);
 	while (token != NULL)
 	{
 		tmp_path = concatenate_strings(token, "/");
@@ -55,14 +56,12 @@ char *find_executable(char *command, char *directories)
 		{
 			return (NULL);
 		}
-
 		path = concatenate_strings(tmp_path, command);
 		if (path == NULL)
 		{
 			free(tmp_path);
 			return (NULL);
 		}
-
 		/* return the full path to the executable if the path indeed points */
 		/* to a an executable */
 		if (is_executable(path))
@@ -70,13 +69,11 @@ char *find_executable(char *command, char *directories)
 			free(tmp_path);
 			return (path);
 		}
-
-		/* prepare to search the next directory in PATH for the executable */
+		/* prepaire to search the next directory in PATH for the executable */
 		_free_all(2, tmp_path, path);
 		path = NULL;
 		token = strtok(NULL, ":");
 	}
-
 	free(path);
 	return (NULL); /* the executable was not found in the PATH */
 }
