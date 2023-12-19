@@ -71,6 +71,9 @@ void _print_env(char **env);
 /* Frees all memory locations provided. */
 void _free_all(int how_many, ...);
 
+/* Frees memory allocated in an array of pointers. */
+void _free_arr(char **arr);
+
 /* Frees memory for an array of tokens. */
 void _free_tokens(char **tokens);
 
