@@ -10,15 +10,20 @@ void __exit(void)
 }
 
 /**
- * _is_exit_call - Checks if the command is a call to the exit command.
- * @command: The command to check.
- * Description: Checks if the command is a call to the exit command.
- * Return: 1 if the command was a call to exit, 0 if it was not.
+ * _is_exit_call - Checks if the args is a call to the exit args.
+ * @args: The args to check.
+ * Description: Checks if the args is a call to the exit args.
+ * Return: 1 if the args was a call to exit, 0 if it was not.
 */
-int _is_exit_call(char *command)
+int _is_exit_call(char **args)
 {
-	if (_strcmp(command, "exit") != 0)
+	if (_strcmp(args[0], "exit") != 0)
+	{
 		return (0);
-
+	}
+	if (_len_arr(args) == 1) /* exit was called alone */
+	{
 	return (1);
+	}
+	return (0);
 }

@@ -57,7 +57,7 @@ int _exec_in_child(char **args, char **argv, char **env);
 int _execvp(char *command, char **args, char **argv, char **env);
 
 /* Checks if the command is a call to the exit command. */
-int _is_exit_call(char *command);
+int _is_exit_call(char **args);
 
 /* Exits the shell program. */
 void __exit(void);
