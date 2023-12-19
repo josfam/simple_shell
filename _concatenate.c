@@ -41,6 +41,9 @@ char *_concat_all(int how_many, ...)
 	va_end(args);
 
 	fused = (char *)malloc(final_size * sizeof(char *));
+	if (!fused)
+		return NULL;
+
 	fusedPtr = fused;
 
 	va_start(args, how_many);
