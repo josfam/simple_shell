@@ -23,7 +23,7 @@ int _is_exit_call(char **args)
 	}
 	if (_len_arr(args) == 1) /* exit was called alone */
 	{
-	return (1);
+		return (1);
 	}
 	return (0);
 }
