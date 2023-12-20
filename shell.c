@@ -38,7 +38,7 @@ int main(__attribute__((unused)) int argc, char **argv, char **env)
 			free(input);
 			__exit();
 		}
-		if (_is_env_call(input)) /* print the environment*/
+		if (_is_env_call(args)) /* print the environment*/
 		{
 			_print_env(env);
 			free(input);

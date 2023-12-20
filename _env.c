@@ -1,14 +1,14 @@
 #include "shell.h"
 
 /**
- * _is_env_call - Checks if the command is a call to the exit command.
- * @command: The command to check.
- * Description: Checks if the command is a call to the exit command.
- * Return: 1 if the command was a call to exit, 0 if it was not.
+ * _is_env_call - Checks if the arguments represent a call to env.
+ * @args: The arguments to check.
+ * Description: Checks if the args is a call to env.
+ * Return: 1 if the args was a call to exit, 0 if it was not.
 */
-int _is_env_call(char *command)
+int _is_env_call(char **args)
 {
-	return ((_strcmp(command, "env") == 0) ? 1 : 0);
+	return ((_strcmp(args[0], "env") == 0) ? 1 : 0);
 }
 
 /**

@@ -63,7 +63,7 @@ int _is_exit_call(char **args);
 void __exit(void);
 
 /* Checks if the command is a call to the exit command. */
-int _is_env_call(char *command);
+int _is_env_call(char **args);
 
 /* Prints the current environment. */
 void _print_env(char **env);
