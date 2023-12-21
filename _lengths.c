@@ -13,7 +13,7 @@ int _argc(char **argv)
 }
 
 /**
- * __len_arr - Returns the length of an array of pointers.
+ * _len_arr - Returns the length of an array of pointers.
  * @arr: The array of commands and arguments whose length to get.
  * Description: Returns the length of an array of pointers.
  *              If the argv array is explicitly NULL-terminated, that NULL
