@@ -10,12 +10,12 @@ void __exit(void)
 }
 
 /**
- * _is_exit_call - Checks if the args is a call to the exit args.
+ * _is_exit - Checks if the args is a call to the exit args.
  * @args: The args to check.
  * Description: Checks if the args is a call to the exit args.
  * Return: 1 if the args was a call to exit, 0 if it was not.
 */
-int _is_exit_call(char **args)
+int _is_exit(char **args)
 {
 	if (_strcmp(args[0], "exit") != 0)
 	{

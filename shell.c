@@ -33,12 +33,12 @@ int main(__attribute__((unused)) int argc, char **argv, char **env)
 
 		args = _get_tokens(input, DELIMS);
 
-		if (_is_exit_call(args)) /* exit immediately */
+		if (_is_exit(args)) /* exit immediately */
 		{
 			free(input);
 			__exit();
 		}
-		if (_is_env_call(args)) /* print the environment*/
+		if (_is_env(args)) /* print the environment*/
 		{
 			_print_env(env);
 			free(input);
