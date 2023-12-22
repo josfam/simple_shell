@@ -57,18 +57,18 @@ int main(__attribute__((unused)) int argc, char **argv, char **env)
 
 		if (executable_path == NULL)
 		{
-			_free_tokens(args);
+			free_tokens(args);
 			free_all(2, executable_path, dir_mem);
 			perror("Error finding executable");
 		}
 
 		if (_execvp(executable_path, args, argv, env) == -1)
 		{
-			_free_tokens(args);
+			free_tokens(args);
 			free_all(2, executable_path, dir_mem);
 			break;
 		}
-		_free_tokens(args);
+		free_tokens(args);
 		free_all(2, executable_path, dir_mem);
 	}
 

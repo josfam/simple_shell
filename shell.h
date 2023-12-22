@@ -82,7 +82,7 @@ void free_all(int how_many, ...);
 void _free_arr(char **arr);
 
 /* Frees memory for an array of tokens. */
-void _free_tokens(char **tokens);
+void free_tokens(char **tokens);
 
 char *_strcat(char *dest, char *src);
 
