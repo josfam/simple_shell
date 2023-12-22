@@ -48,10 +48,10 @@ int len_arr(char **arr);
 char **get_tokens(char *str, char *delims);
 
 /* Checks if the provided character is a delimiter. */
-int _is_delim(char ch, char *delims);
+int is_delim(char ch, char *delims);
 
 /* Checks if a string is composed of only delimiters */
-int _has_only_delims(char *str, char *delims);
+int has_only_delims(char *str, char *delims);
 
 /* Shows a prompt, and gets terminal inputs provided at said prompt. */
 char *get_prompt_input(int is_interactive);

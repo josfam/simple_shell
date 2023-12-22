@@ -2,7 +2,7 @@
 #include "shell.h"
 
 /**
- * _has_only_delims - Checks if the provided string is purely composed of only
+ * has_only_delims - Checks if the provided string is purely composed of only
  *                  delimiters.
  * @str: The string to check.
  * @delims: Delimiters to check for.
@@ -10,7 +10,7 @@
  *              delimiters.
  * Return: 1 if the string is purely composed of only tokens, 0 otherwise.
  */
-int _has_only_delims(char *str, char *delims)
+int has_only_delims(char *str, char *delims)
 {
 	char *copy;
 	char *copyPtr;
@@ -20,7 +20,7 @@ int _has_only_delims(char *str, char *delims)
 
 	while (*copyPtr)
 	{
-		if (!(_is_delim(*copyPtr, delims)))
+		if (!(is_delim(*copyPtr, delims)))
 		{
 			free(copy);
 			return (0);
@@ -32,13 +32,13 @@ int _has_only_delims(char *str, char *delims)
 }
 
 /**
- * _is_delim - Checks if the provided character is a delimiter.
+ * is_delim - Checks if the provided character is a delimiter.
  * @ch: The character to check.
  * @delims: The delimiter/delimiters string.
  * Description: Checks if the provided character is a delimiter.
  * Return: 1 if the provided character is a delimiter, 0 otherwise.
 */
-int _is_delim(char ch, char *delims)
+int is_delim(char ch, char *delims)
 {
 	int delim_len, i;
 
