@@ -21,7 +21,7 @@ int _is_exit(char **args)
 	{
 		return (0);
 	}
-	if (_len_arr(args) == 1) /* exit was called alone */
+	if (len_arr(args) == 1) /* exit was called alone */
 	{
 		return (1);
 	}

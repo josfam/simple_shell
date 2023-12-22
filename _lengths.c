@@ -9,11 +9,11 @@
  */
 int _argc(char **argv)
 {
-	return (_len_arr(argv));
+	return (len_arr(argv));
 }
 
 /**
- * _len_arr - Returns the length of an array of pointers.
+ * len_arr - Returns the length of an array of pointers.
  * @arr: The array of commands and arguments whose length to get.
  * Description: Returns the length of an array of pointers.
  *              If the argv array is explicitly NULL-terminated, that NULL
@@ -22,7 +22,7 @@ int _argc(char **argv)
  *              and so would the array {"/bin/ls", "/tmp"}.
  * Return: The length of an array of pointers.
  */
-int _len_arr(char **arr)
+int len_arr(char **arr)
 {
 	int len;
 

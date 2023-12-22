@@ -41,7 +41,7 @@ int is_command(char *s1, char *s2);
 int _argc(char **argv);
 
 /* Returns the length of an array of pointers. */
-int _len_arr(char **arr);
+int len_arr(char **arr);
 
 /* Returns an array of tokens got by splitting up the provided string */
 /* using the given delimiter/delimiters. */
