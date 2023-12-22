@@ -3,13 +3,13 @@
 #include "shell.h"
 
 /**
- * _starts_with - Checks if string, s1 starts with another string, s2.
+ * starts_with - Checks if string, s1 starts with another string, s2.
  * @s1: The string to check
  * @s2: The other string to use for checking.
  * Description: Checks if string, s1 starts with another string, s2.
  * Return: 1 if s1 starts with s2, 0 otherwise.
  */
-int _starts_with(char *s1, char *s2)
+int starts_with(char *s1, char *s2)
 {
 	int s1_len, s2_len, least_len, i;
 
