@@ -25,4 +25,8 @@ run = "" if not args.run else "&& ./hsh"
 
 compilation = f"gcc {flags} *.c -o hsh {valgrind} {run}"
 
-subprocess.run(compilation, shell=True)
+# do not show a python traceback if CTRL + C or CTRL+ D are hit.
+try:
+	subprocess.run(compilation, shell=True)
+except KeyboardInterrupt:
+	pass
