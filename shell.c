@@ -26,7 +26,7 @@ int main(__attribute__((unused)) int argc, char **argv, char **env)
 
 	while (1)
 	{
-		input = _get_prompt_input(is_interactive);
+		input = get_prompt_input(is_interactive);
 		/* on input error, CTRL + D*/
 		if (!input)
 			break;

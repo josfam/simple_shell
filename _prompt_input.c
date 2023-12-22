@@ -5,7 +5,7 @@
 #include "shell.h"
 
 /**
- * _get_prompt_input - Shows a terminal prompt, and gets terminal
+ * get_prompt_input - Shows a terminal prompt, and gets terminal
  *                    inputs provided at said prompt.
  * @is_interactive: Whether the shell is being invoked in interactive mode.
  * Description: Shows a terminal prompt, and gets terminal
@@ -14,7 +14,7 @@
  *              If CTRL+D is pressed, the program terminates.
  * Return: The input entered (if any), or NULL on error.
 */
-char *_get_prompt_input(int is_interactive)
+char *get_prompt_input(int is_interactive)
 {
 	ssize_t chars_read;
 	char *input_buff;

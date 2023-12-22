@@ -54,7 +54,7 @@ int _is_delim(char ch, char *delims);
 int _has_only_delims(char *str, char *delims);
 
 /* Shows a prompt, and gets terminal inputs provided at said prompt. */
-char *_get_prompt_input(int is_interactive);
+char *get_prompt_input(int is_interactive);
 
 /* Executes a program/command, inside of a child process. */
 int _exec_in_child(char **args, char **argv, char **env);
