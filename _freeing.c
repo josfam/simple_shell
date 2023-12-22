@@ -3,7 +3,7 @@
 #include "shell.h"
 
 /**
- * _free_all - Frees all memory locations provided.
+ * free_all - Frees all memory locations provided.
  * @how_many: How many locations to free.
  * Description: Frees all memory locations provided.
  *              Works for straight-forward memory locations,
@@ -11,7 +11,7 @@
  *              contain pointers to other blocks of memory
  *              (like an array of pointers to other memory).
 */
-void _free_all(int how_many, ...)
+void free_all(int how_many, ...)
 {
 	int i;
 	void *memory;

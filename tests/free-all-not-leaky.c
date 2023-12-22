@@ -26,6 +26,6 @@ int main(void)
 	names[0] = "Jordan";
 	names[1] = "Li";
 
-	_free_all(2, nums, names);
+	free_all(2, nums, names);
 	return (0);
 }

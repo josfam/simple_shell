@@ -58,18 +58,18 @@ int main(__attribute__((unused)) int argc, char **argv, char **env)
 		if (executable_path == NULL)
 		{
 			_free_tokens(args);
-			_free_all(2, executable_path, dir_mem);
+			free_all(2, executable_path, dir_mem);
 			perror("Error finding executable");
 		}
 
 		if (_execvp(executable_path, args, argv, env) == -1)
 		{
 			_free_tokens(args);
-			_free_all(2, executable_path, dir_mem);
+			free_all(2, executable_path, dir_mem);
 			break;
 		}
 		_free_tokens(args);
-		_free_all(2, executable_path, dir_mem);
+		free_all(2, executable_path, dir_mem);
 	}
 
 	if (is_interactive)
@@ -96,7 +96,7 @@ char *get_dir_mem(int max_space, char *program, char *input, char **args)
 	if (dir_memory == NULL)
 	{
 		perror(program);
-		_free_all(2, input, args);
+		free_all(2, input, args);
 		exit(EXIT_FAILURE);
 	}
 
@@ -121,7 +121,7 @@ char *get_path_dirs(char *program, char *input, char *dir_mem, char **args)
 	if (path_dirs == NULL)
 	{
 		perror(program);
-		_free_all(4, input, dir_mem, args, path_dirs);
+		free_all(4, input, dir_mem, args, path_dirs);
 		exit(EXIT_FAILURE);
 	}
 

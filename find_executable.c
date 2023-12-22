@@ -69,8 +69,8 @@ char *find_executable(char *command, char *directories)
 			free(tmp_path);
 			return (path);
 		}
-		/* prepaire to search the next directory in PATH for the executable */
-		_free_all(2, tmp_path, path);
+		/* prepare to search the next directory in PATH for the executable */
+		free_all(2, tmp_path, path);
 		path = NULL;
 		token = strtok(NULL, ":");
 	}
