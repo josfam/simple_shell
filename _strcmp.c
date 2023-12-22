@@ -26,12 +26,7 @@ int _strcmp(char *s1, char *s2)
 		return (0);
 
 	/* Use the shortest string to iterate */
-	if (s1_len > s2_len)
-		min_loops = s2_len;
-	else if (s1_len < s2_len)
-		min_loops = s1_len;
-	else
-		min_loops = s1_len;
+	min_loops = (s1_len > s2_len) ? s2_len : s1_len;
 
 	for (i = 0; i < min_loops; i++)
 	{
