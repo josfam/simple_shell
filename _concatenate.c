@@ -19,12 +19,12 @@ char *concat_strs(char *str1, char *str2)
 }
 
 /**
- * _concat_all - Concatenates all given strings together.
+ * concat_all - Concatenates all given strings together.
  * @how_many: How many strings to concatenate.
  * Description: Concatenates all given strings together.
  * Return: A pointer to the combined string.
  */
-char *_concat_all(int how_many, ...)
+char *concat_all(int how_many, ...)
 {
 	int i, j, final_size;
 	char *str, *fused, *fusedPtr;

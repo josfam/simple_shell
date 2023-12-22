@@ -15,7 +15,7 @@ int main(void)
 	first = "Jordan";
 	last = "Li";
 	friend = "Marie";
-	altogether = _concat_all(6, first, " ", last, " & ", friend, ".");
+	altogether = concat_all(6, first, " ", last, " & ", friend, ".");
 
 	printf("%s\n", altogether);
 	free(altogether);
