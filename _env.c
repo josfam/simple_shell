@@ -12,12 +12,12 @@ int _is_env(char **args)
 }
 
 /**
- * _print_env - Prints the current environment.
+ * print_env - Prints the current environment.
  * @env: The current environment, as passed into main.
  * Description: Prints the current environment.
  * Return: Nothing
 */
-void _print_env(char **env)
+void print_env(char **env)
 {
 	while (*env)
 	{

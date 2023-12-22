@@ -41,7 +41,7 @@ int main(__attribute__((unused)) int argc, char **argv, char **env)
 		}
 		if (is_command(command, "env")) /* print the environment*/
 		{
-			_print_env(env);
+			print_env(env);
 			free(input);
 			continue;
 		}
