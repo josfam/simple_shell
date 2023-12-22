@@ -28,26 +28,32 @@ $ ./dev-scripts/<script name>
 
 ### ,compile
 
-Compiles, by default, the program with the ALX gcc flags.
-If the `-r` (or `--relaxed`) option is used, the program will not use the ALX
-flags, and will just use gcc (useful for quick debugging).
-\
-\
-possible usages:
+Without any flags, `,compile` compiles the program with the ALX gcc flags.
+
 ```sh
-$ ,compile
-$ ,compile -r
-$ ,compile --relaxed
+,compile
 ```
 
-### ,run
-
-Compiles the program with the recommended gcc flags, and runs the resulting
+If the `-s` (or `--simple`) flag is used, the compilation will not use strict
 \
-executable `hsh` file.
+flags, and will just use gcc.
 
-### ,valgrindrun
+```sh
+,compile -s
+```
 
-Compiles the program with the recommended gcc flags, and runs the resulting
+If the `-r` (or `--run`) flag is used, the program will be compiled and run.
+
+```sh
+,compile -r
+```
+
+If the `-v` (or `--valgrind`) flag is used, the program will be run inside a
 \
-executable `hsh` file, inside of a Valgrind environment
+valgrind environment.
+
+```sh
+,compile -v
+```
+
+Note: `-r` and `-v` flags cannot be combined.

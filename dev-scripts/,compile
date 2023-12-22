@@ -3,16 +3,26 @@
 import argparse
 import subprocess
 
+#set up arguments parsing
 parser = argparse.ArgumentParser()
-parser.add_argument('--relaxed','-r', action='store_true',
-					help="Compiles the program without flags")
+parser.add_argument('--simple','-s', action='store_true',
+					help="Compiles the program without strict gcc flags")
+
+# can't use the flags in this group at the same time
+group = parser.add_mutually_exclusive_group()
+group.add_argument('--run', '-r', action='store_true',
+					help="Runs the program")
+group.add_argument('--valgrind', '-v', action='store_true',
+					help="Runs the program in a valgrind environment")
+
 args = parser.parse_args()
 
-relaxed = True if args.relaxed else False
-strict_compile = "gcc -Wall -Werror -Wextra -pedantic -std=gnu89 *.c -o hsh"
-simple_compile = "gcc *.c -o hsh"
+# setup variables for compilation
+flags = "" if args.simple else "-Wall -Werror -Wextra -pedantic -std=gnu89"
+valgrind = "" if not args.valgrind else "&& valgrind \
+	--track-origins=yes --leak-check=full ./hsh"
+run = "" if not args.run else "&& ./hsh"
 
-if relaxed:
-	subprocess.run(simple_compile, shell=True)
-else:
-	subprocess.run(strict_compile, shell=True)
+compilation = f"gcc {flags} *.c -o hsh {valgrind} {run}"
+
+subprocess.run(compilation, shell=True)
