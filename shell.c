@@ -32,13 +32,14 @@ int main(__attribute__((unused)) int argc, char **argv, char **env)
 			break;
 
 		args = _get_tokens(input, DELIMS);
+		command = args[0];
 
-		if (_is_exit(args)) /* exit immediately */
+		if (is_command(command, "exit")) /* exit immediately */
 		{
 			free(input);
 			__exit();
 		}
-		if (_is_env(args)) /* print the environment*/
+		if (is_command(command, "env")) /* print the environment*/
 		{
 			_print_env(env);
 			free(input);
@@ -52,7 +53,6 @@ int main(__attribute__((unused)) int argc, char **argv, char **env)
 		_strncpy(dir_mem, env_path, MAX_DIR_LEN - 1);
 		dir_mem[MAX_DIR_LEN - 1] = '\0';
 		free(env_path);
-		command = args[0];
 		executable_path = find_executable(command, dir_mem);
 
 		if (executable_path == NULL)
