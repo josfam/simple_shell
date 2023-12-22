@@ -28,10 +28,16 @@ $ ./dev-scripts/<script name>
 
 ### ,compile
 
-Compiles the program with the recommended gcc flags:
-
+Compiles, by default, the program with the ALX gcc flags.
+If the `-r` (or `--relaxed`) option is used, the program will not use the ALX
+flags, and will just use gcc (useful for quick debugging).
+\
+\
+possible usages:
 ```sh
-gcc -Wall -Werror -Wextra -pedantic -std=gnu89 *.c -o hsh
+$ ,compile
+$ ,compile -r
+$ ,compile --relaxed
 ```
 
 ### ,run
