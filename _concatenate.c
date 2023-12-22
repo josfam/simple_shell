@@ -42,7 +42,7 @@ char *_concat_all(int how_many, ...)
 
 	fused = (char *)malloc(final_size * sizeof(char *));
 	if (!fused)
-		return NULL;
+		return (NULL);
 
 	fusedPtr = fused;
 

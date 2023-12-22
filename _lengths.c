@@ -9,7 +9,7 @@
  */
 int _argc(char **argv)
 {
-	return _len_arr(argv);
+	return (_len_arr(argv));
 }
 
 /**
