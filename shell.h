@@ -73,7 +73,7 @@ int _is_env(char **args);
 
 
 /* Prints the current environment. */
-void _print_env(char **env);
+void print_env(char **env);
 
 /* Frees all memory locations provided. */
 void free_all(int how_many, ...);
