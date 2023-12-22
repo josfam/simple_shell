@@ -41,16 +41,16 @@ void free_all(int how_many, ...)
 */
 void free_tokens(char **tokens)
 {
-	_free_arr(tokens);
+	free_arr(tokens);
 }
 
 /**
- * _free_arr - Frees memory allocated in an array of pointers.
+ * free_arr - Frees memory allocated in an array of pointers.
  * @arr: The array of pointers, which to free.
  * Description: Frees memory allocated in an array of pointers.
  * Return: Nothing.
 */
-void _free_arr(char **arr)
+void free_arr(char **arr)
 {
 	int i;
 
