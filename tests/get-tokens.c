@@ -25,7 +25,7 @@ int main(void)
 
 	for(i = 0; i < test_count; i++)
 	{
-		separated = _get_tokens(test_strings[i], tokens);
+		separated = get_tokens(test_strings[i], tokens);
 
 		/* print the tokens */
 		while(*separated)

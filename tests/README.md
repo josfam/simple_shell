@@ -17,7 +17,7 @@ $
 ## get-tokens.c
 
 ```sh
-$ gcc -Wall -Werror -Wextra -pedantic -std=gnu89 _strdup.c _strlen.c _get_tokens.c tests/get-tokens.c
+$ gcc -Wall -Werror -Wextra -pedantic -std=gnu89 _strdup.c _strlen.c get_tokens.c tests/get-tokens.c
 $ ./a.out
 Marie
 Jordan

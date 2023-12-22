@@ -45,7 +45,7 @@ int _len_arr(char **arr);
 
 /* Returns an array of tokens got by splitting up the provided string */
 /* using the given delimiter/delimiters. */
-char **_get_tokens(char *str, char *delims);
+char **get_tokens(char *str, char *delims);
 
 /* Checks if the provided character is a delimiter. */
 int _is_delim(char ch, char *delims);

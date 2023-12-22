@@ -31,7 +31,7 @@ int main(__attribute__((unused)) int argc, char **argv, char **env)
 		if (!input)
 			break;
 
-		args = _get_tokens(input, DELIMS);
+		args = get_tokens(input, DELIMS);
 		command = args[0];
 
 		if (is_command(command, "exit")) /* exit immediately */

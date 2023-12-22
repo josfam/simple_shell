@@ -8,7 +8,7 @@ int count_tokens(char *str, char *delims);
 int _has_only_delims(char *str, char *delims);
 
 /**
- * _get_tokens - Returns a NULL-terminated array of tokens got by splitting up
+ * get_tokens - Returns a NULL-terminated array of tokens got by splitting up
  *               the provided string using the given delimiter/delimiters.
  * @str: The string to split into tokens.
  * @delims: The delimiter/delimiters with which to split the string into
@@ -19,7 +19,7 @@ int _has_only_delims(char *str, char *delims);
  *         if the string does not contain any delimiter.
  *         NULL is returned if either str or delims is NULL.
 */
-char **_get_tokens(char *str, char *delims)
+char **get_tokens(char *str, char *delims)
 {
 	char *tallying, *tokenizing, *token;
 	int token_count, i;
