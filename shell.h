@@ -31,6 +31,9 @@ char *_strdup(char *str);
 /* Compares two strings. */
 int _strcmp(char *s1, char *s2);
 
+/* Checks if string, s1 starts with another string, s2. */
+int _starts_with(char *s1, char *s2);
+
 /* Returns the argument count for the program/command entered. */
 int _argc(char **argv);
 
