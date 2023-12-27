@@ -35,7 +35,7 @@ int _strcmp(char *s1, char *s2);
 int starts_with(char *s1, char *s2);
 
 /* Checks if string s1 is the same as the command, s2. */
-int is_command(char *s1, char *s2);
+int is_same(char *s1, char *s2);
 
 /* Returns the argument count for the program/command entered. */
 int _argc(char **argv);

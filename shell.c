@@ -33,13 +33,13 @@ int main(__attribute__((unused)) int argc, char **argv, char **env)
 
 		args = get_tokens(input, DELIMS);
 		command = args[0];
-
-		if (is_command(command, "exit")) /* exit immediately */
+		printf("command is: %s\n", command);
+		if (is_same(command, "exit")) /* exit immediately */
 		{
 			free(input);
 			__exit();
 		}
-		if (is_command(command, "env")) /* print the environment*/
+		if (is_same(command, "env")) /* print the environment */
 		{
 			print_env(env);
 			free(input);
