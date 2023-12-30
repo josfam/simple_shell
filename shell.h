@@ -71,6 +71,11 @@ void __exit(void);
 /* Checks if the command is a call to the exit command. */
 int _is_env(char **args);
 
+/* Change or add an environment variable. */
+int _setenv(char *key, char *value, char **env);
+
+/* Checks if an environment variable with a given key exists. */
+int key_exists(char *key, char **env, int *index);
 
 /* Prints the current environment. */
 void print_env(char **env);

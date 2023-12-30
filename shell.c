@@ -33,7 +33,7 @@ int main(__attribute__((unused)) int argc, char **argv, char **env)
 
 		args = get_tokens(input, DELIMS);
 		command = args[0];
-		printf("command is: %s\n", command);
+
 		if (is_same(command, "exit")) /* exit immediately */
 		{
 			free(input);
@@ -42,6 +42,13 @@ int main(__attribute__((unused)) int argc, char **argv, char **env)
 		if (is_same(command, "env")) /* print the environment */
 		{
 			print_env(env);
+			free(input);
+			continue;
+		}
+
+		if (is_same(command, "setenv"))
+		{
+			_setenv(args[1], args[2], env);
 			free(input);
 			continue;
 		}
@@ -68,6 +75,7 @@ int main(__attribute__((unused)) int argc, char **argv, char **env)
 			free_all(2, executable_path, dir_mem);
 			break;
 		}
+
 		free_tokens(args);
 		free_all(2, executable_path, dir_mem);
 	}
