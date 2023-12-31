@@ -20,9 +20,11 @@ int main(__attribute__((unused)) int argc, char **argv, char **env)
 	char **args;
 	char *input, *command, *dir_mem, *executable_path, *env_path;
 	int is_interactive;
+	memPool *pool;
 	const int MAX_DIR_LEN = 1024;
 
 	is_interactive = isatty(STDIN_FILENO);
+	pool = create_mem_pool();
 
 	while (1)
 	{
@@ -36,6 +38,7 @@ int main(__attribute__((unused)) int argc, char **argv, char **env)
 
 		if (is_same(command, "exit")) /* exit immediately */
 		{
+			free_mem_pool(pool);
 			free(input);
 			free_arr(args);
 			__exit();
@@ -71,6 +74,7 @@ int main(__attribute__((unused)) int argc, char **argv, char **env)
 		}
 		free(input);
 		free_arr(args);
+		free_mem_pool(pool);
 	}
 
 	if (is_interactive)

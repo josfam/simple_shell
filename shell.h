@@ -91,6 +91,12 @@ void __exit(void);
 /* Prints the current environment. */
 void print_env(char **env);
 
+/* Change or add an environment variable. */
+int _setenv(char *key, char *value, char **env, memPool *pool);
+
+/* Checks if an environment variable with a given key exists. */
+int key_exists(char *key, char **env, int *index);
+
 /* Frees all memory locations provided. */
 void free_all(int how_many, ...);
 
