@@ -37,6 +37,7 @@ int main(__attribute__((unused)) int argc, char **argv, char **env)
 		if (is_same(command, "exit")) /* exit immediately */
 		{
 			free(input);
+			free_arr(args);
 			__exit();
 		}
 		if (is_same(command, "env")) /* print the environment*/
