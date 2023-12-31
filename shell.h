@@ -88,9 +88,6 @@ int _is_exit(char **args);
 /* Exits the shell program. */
 void __exit(void);
 
-/* Checks if the command is a call to the exit command. */
-int _is_env(char **args);
-
 /* Prints the current environment. */
 void print_env(char **env);
 
