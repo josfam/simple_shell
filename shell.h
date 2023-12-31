@@ -71,7 +71,6 @@ void __exit(void);
 /* Checks if the command is a call to the exit command. */
 int _is_env(char **args);
 
-
 /* Prints the current environment. */
 void print_env(char **env);
 
@@ -90,8 +89,8 @@ char *_strcpy(char *dest, const char *src);
 
 char *concat_strs(char *str1, char *str2);
 
-/* Concatenates all given strings together. */
-char *concat_all(int how_many, ...);
+/* Concatenates three strings together. */
+char *concat_three(char *s1, char *s2, char *s3);
 
 char *_strchr(const char *s, int c);
 

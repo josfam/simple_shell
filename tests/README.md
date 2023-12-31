@@ -89,3 +89,13 @@ _atoi   | atoi
 10      | 10
 ---------------
 ```
+
+## concat-three.c
+
+```sh
+$ gcc -Wall -Werror -Wextra -pedantic -std=gnu89 _copying.c _strcat.c _strlen.c _concatenate.c _comparing.c tests/concat-three.c
+$ ./a.out
+Jordan Moreau Li
+Jordan Moreau
+
+```
