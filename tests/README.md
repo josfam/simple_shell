@@ -8,7 +8,7 @@ To show how the test files were compiled, and the output of those tests.
 ## str-duplicate.c
 
 ```sh
-$ gcc -Wall -Werror -Wextra -pedantic -std=gnu89 _strdup.c _strlen.c tests/str-duplicate.c
+$ gcc -Wall -Werror -Wextra -pedantic -std=gnu89 _copying.c _strlen.c tests/str-duplicate.c
 $ ./a.out
 Hello, there!
 $
