@@ -7,10 +7,11 @@
  * @key: The key to search for in the environment.
  * @value: The value to assign to the key, in the environment.
  * @env: The current environment variables.
+ * @pool: The memory pool to store malloced memory.
  * Description: Checks if an environment variable with this key exists.
  * Return: 0 on success, -1 otherwise.
 */
-int _setenv(char *key, char *value, char **env)
+int _setenv(char *key, char *value, char **env, memPool *pool)
 {
 	char *new_var;
 	char **envPtr;
@@ -22,6 +23,9 @@ int _setenv(char *key, char *value, char **env)
 	if (key_exists(key, envPtr, &index))
 	{
 		new_var = concat_all(3, key, "=", value);
+		if (!new_var)
+			return -1;
+		append_memory(pool, new_var);
 		env[index] = new_var;
 		return (0);
 	}

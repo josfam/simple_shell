@@ -20,9 +20,11 @@ int main(__attribute__((unused)) int argc, char **argv, char **env)
 	char **args;
 	char *input, *command, *dir_mem, *executable_path, *env_path;
 	int is_interactive;
+	memPool *pool;
 	const int MAX_DIR_LEN = 1024;
 
 	is_interactive = isatty(STDIN_FILENO);
+	pool = create_mem_pool();
 
 	while (1)
 	{
@@ -48,7 +50,8 @@ int main(__attribute__((unused)) int argc, char **argv, char **env)
 
 		if (is_same(command, "setenv"))
 		{
-			_setenv(args[1], args[2], env);
+			_setenv(args[1], args[2], env, pool);
+			free_mem_pool(pool);
 			free(input);
 			continue;
 		}

@@ -4,6 +4,21 @@
 /* Delimiters with which to tokenize inputs */
 #define DELIMS " \n"
 
+/* struct to hold malloced memory locations */
+typedef struct memPool {
+	char *memArray[50];
+	int nextFreeIndex;
+} memPool;
+
+/* Creates a mem pool, that stores memory locations */
+memPool *create_mem_pool();
+
+/* Adds a memory location to the memory pool. */
+int append_memory(memPool *pool, char *memory);
+
+/* Frees all memory locations in the memory pool. */
+void free_mem_pool(memPool *pool);
+
 /* Writes a character to standard out. */
 int _putchar(char ch);
 
@@ -72,7 +87,7 @@ void __exit(void);
 int _is_env(char **args);
 
 /* Change or add an environment variable. */
-int _setenv(char *key, char *value, char **env);
+int _setenv(char *key, char *value, char **env, memPool *pool);
 
 /* Checks if an environment variable with a given key exists. */
 int key_exists(char *key, char **env, int *index);
