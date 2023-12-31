@@ -115,6 +115,9 @@ char *concat_strs(char *str1, char *str2);
 /* Concatenates all given strings together. */
 char *concat_all(int how_many, ...);
 
+/* Concatenates three strings together. */
+char *concat_three(char *s1, char *s2, char *s3);
+
 char *_strchr(const char *s, int c);
 
 int _strcmpr(const char *str1, const char *str2, int n);

@@ -89,3 +89,13 @@ _atoi   | atoi
 10      | 10
 ---------------
 ```
+
+## concatenate-three.c
+
+```sh
+$ gcc _concatenate.c _strlen.c _strcpy.c _strcat.c tests/concat-three.c
+$ ./a.out                                                              
+Jordan Marie Li
+Jordan Li
+
+```

@@ -19,44 +19,46 @@ char *concat_strs(char *str1, char *str2)
 }
 
 /**
- * concat_all - Concatenates all given strings together.
- * @how_many: How many strings to concatenate.
- * Description: Concatenates all given strings together.
- * Return: A pointer to the combined string.
- */
-char *concat_all(int how_many, ...)
+ * concat_three - Concatenates three strings together.
+ * @s1: The first string that will appear in the left-most position.
+ * @s2: The second string that will appear in the middle position.
+ * @s3: The third string that will appear in the right-most position.
+ * Description: Concatenates three strings together.
+ * Return: A string that is the result of concatenating three strings.
+*/
+char *concat_three(char *s1, char *s2, char *s3)
 {
-	int i, j, final_size;
-	char *str, *fused, *fusedPtr;
+	char *fused;
+	int final_size, str_count, s1_len, s2_len, s3_len, i, j;
 
-	va_list args;
-
-	va_start(args, how_many);
-	for (i = 0; i < how_many; i++) /* Count necessary memory size */
-	{
-		str = va_arg(args, char *);
-		final_size += _strlen(str);
-	}
-	final_size++; /* Add null terminator */
-	va_end(args);
-
-	fused = (char *)malloc(final_size * sizeof(char *));
-	if (!fused)
+	if (!s1 || !s2 || !s3)
 		return (NULL);
 
-	fusedPtr = fused;
+	s1_len = _strlen(s1);
+	s2_len = _strlen(s2);
+	s3_len = _strlen(s3);
 
-	va_start(args, how_many);
-	for (i = 0; i < how_many; i++) /* copy over values */
+	final_size = s1_len + s2_len + s3_len + 1;
+	fused = (char *)malloc(final_size * sizeof(char));
+	i = 0;
+	j = 0;
+
+	/* copy over s1, s2, and s3 values */
+	for (i = 0; i < s1_len; i++, j++)
 	{
-		str = va_arg(args, char *);
-		for (j = 0; j < _strlen(str); j++)
-		{
-			*fusedPtr = str[j];
-			fusedPtr++;
-		}
+		fused[j] = s1[i];
 	}
-	va_end(args);
+
+	for (i = 0; i < s2_len; i++, j++)
+	{
+		fused[j] = s2[i];
+	}
+
+	for (i = 0; i < s3_len; i++, j++)
+	{
+		fused[j] = s3[i];
+	}
+	fused[j] = '\0';
 
 	return (fused);
 }
