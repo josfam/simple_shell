@@ -4,6 +4,23 @@
 /* Delimiters with which to tokenize inputs */
 #define DELIMS " \n"
 
+#define MAX_MEMPOOL_SIZE 50
+
+/* struct to hold malloced memory locations that are tricky to free directly */
+typedef struct memPool {
+	char *memArray[MAX_MEMPOOL_SIZE];
+	int nextFreeIndex;
+} memPool;
+
+/* Creates a mem pool, that stores memory locations */
+memPool *create_mem_pool();
+
+/* Adds a memory location to the memory pool. */
+int append_memory(memPool *pool, char *memory);
+
+/* Frees all memory locations in the memory pool. */
+void free_mem_pool(memPool *pool);
+
 /* Writes a character to standard out. */
 int _putchar(char ch);
 
