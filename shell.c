@@ -47,6 +47,10 @@ int main(__attribute__((unused)) int argc, char **argv, char **env)
 		{
 			print_env(env);
 		}
+		else if (is_same(command, "setenv"))
+		{
+			_setenv(args[1], args[2], env, pool);
+		}
 		else
 		{
 			dir_mem = get_dir_mem(MAX_DIR_LEN, argv[0], input, args);
