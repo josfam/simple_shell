@@ -78,8 +78,8 @@ int main(__attribute__((unused)) int argc, char **argv, char **env)
 		}
 		free(input);
 		free_arr(args);
-		free_mem_pool(pool);
 	}
+	free_mem_pool(pool);
 
 	if (is_interactive)
 		_puts("\n");
