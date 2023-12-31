@@ -4,9 +4,11 @@
 /* Delimiters with which to tokenize inputs */
 #define DELIMS " \n"
 
+#define MAX_MEMPOOL_SIZE 50
+
 /* struct to hold malloced memory locations */
 typedef struct memPool {
-	char *memArray[50];
+	char *memArray[MAX_MEMPOOL_SIZE];
 	int nextFreeIndex;
 } memPool;
 

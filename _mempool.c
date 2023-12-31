@@ -10,11 +10,20 @@
 */
 memPool *create_mem_pool()
 {
+	int i;
 	memPool *mem_pool;
 
 	mem_pool = (memPool *)malloc(sizeof(memPool));
-	mem_pool->nextFreeIndex = 0;
+	if (!mem_pool)
+		return (NULL);
 
+	/* initialize all memory locations to NULL */
+	for (i = 0; i < MAX_MEMPOOL_SIZE; i++)
+	{
+		mem_pool->memArray[i] = NULL;
+	}
+
+	mem_pool->nextFreeIndex = 0;
 	return (mem_pool);
 }
 
