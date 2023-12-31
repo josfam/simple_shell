@@ -1,0 +1,22 @@
+#!/usr/bin/env python3
+
+import argparse
+import subprocess
+
+parser = argparse.ArgumentParser()
+parser.add_argument("command",
+					help="The command to run in non-interactive mode")
+parser.add_argument("--valgrind", "-v", action="store_true",
+					help="Produces a valgrind summary after running the command")
+args = parser.parse_args()
+
+command = args.command
+valgrind = "valgrind --leak-check=full --track-origins=yes" if args.valgrind else ""
+
+to_run = f"echo \"{command}\" | {valgrind} ./hsh"
+
+# compile the program first
+subprocess.run(",compile", shell=True)
+
+# run the command in non-interactive mode
+subprocess.run(to_run, shell=True)
