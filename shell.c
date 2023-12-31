@@ -41,50 +41,55 @@ int main(__attribute__((unused)) int argc, char **argv, char **env)
 			free(input);
 			__exit();
 		}
-		if (is_same(command, "env")) /* print the environment */
+		else if (is_same(command, "env")) /* print the environment */
 		{
 			print_env(env);
 			free(input);
-			continue;
 		}
-
-		if (is_same(command, "setenv"))
+		else if (is_same(command, "setenv"))
 		{
 			_setenv(args[1], args[2], env, pool);
-			free_mem_pool(pool);
+			if (!is_interactive)
+			{
+				free_mem_pool(pool);
+				free_tokens(args);
+			}
 			free(input);
-			continue;
 		}
-
-		dir_mem = get_dir_mem(MAX_DIR_LEN, argv[0], input, args);
-		env_path = get_path_dirs(argv[0], input, dir_mem, args);
-		free(input);
-
-		_strncpy(dir_mem, env_path, MAX_DIR_LEN - 1);
-		dir_mem[MAX_DIR_LEN - 1] = '\0';
-		free(env_path);
-		executable_path = find_executable(command, dir_mem);
-
-		if (executable_path == NULL)
+		else
 		{
-			free_tokens(args);
-			free_all(2, executable_path, dir_mem);
-			perror("Error finding executable");
-		}
+			dir_mem = get_dir_mem(MAX_DIR_LEN, argv[0], input, args);
+			env_path = get_path_dirs(argv[0], input, dir_mem, args);
+			free(input);
 
-		if (_execvp(executable_path, args, argv, env) == -1)
-		{
-			free_tokens(args);
-			free_all(2, executable_path, dir_mem);
-			break;
-		}
+			_strncpy(dir_mem, env_path, MAX_DIR_LEN - 1);
+			dir_mem[MAX_DIR_LEN - 1] = '\0';
+			free(env_path);
+			executable_path = find_executable(command, dir_mem);
 
+			if (executable_path == NULL)
+			{
+				free_tokens(args);
+				free_all(2, executable_path, dir_mem);
+				perror("Error finding executable");
+			}
+
+			if (_execvp(executable_path, args, argv, env) == -1)
+			{
+				free_tokens(args);
+				free_all(2, executable_path, dir_mem);
+				break;
+			}
+			free_all(2, executable_path, dir_mem);
+		}
 		free_tokens(args);
-		free_all(2, executable_path, dir_mem);
 	}
 
 	if (is_interactive)
+	{
+		free_mem_pool(pool);
 		_puts("\n");
+	}
 
 	return (0);
 }
