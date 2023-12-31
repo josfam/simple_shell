@@ -34,17 +34,6 @@ void free_all(int how_many, ...)
 }
 
 /**
- * free_tokens - Frees memory allocated for storing tokens.
- * @tokens: The array of tokens, which to free.
- * Description: Frees memory allocated for storing tokens.
- * Return: Nothing.
-*/
-void free_tokens(char **tokens)
-{
-	free_arr(tokens);
-}
-
-/**
  * free_arr - Frees memory allocated in an array of pointers.
  * @arr: The array of pointers, which to free.
  * Description: Frees memory allocated in an array of pointers.

@@ -83,9 +83,6 @@ void free_all(int how_many, ...);
 /* Frees memory allocated in an array of pointers. */
 void free_arr(char **arr);
 
-/* Frees memory for an array of tokens. */
-void free_tokens(char **tokens);
-
 char *_strcat(char *dest, char *src);
 
 char *_strcpy(char *dest, const char *src);
