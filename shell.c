@@ -43,13 +43,11 @@ int main(__attribute__((unused)) int argc, char **argv, char **env)
 		else if (is_same(command, "env")) /* print the environment*/
 		{
 			print_env(env);
-			free(input);
 		}
 		else
 		{
 			dir_mem = get_dir_mem(MAX_DIR_LEN, argv[0], input, args);
 			env_path = get_path_dirs(argv[0], input, dir_mem, args);
-			free(input);
 
 			_strncpy(dir_mem, env_path, MAX_DIR_LEN - 1);
 			dir_mem[MAX_DIR_LEN - 1] = '\0';
@@ -71,6 +69,7 @@ int main(__attribute__((unused)) int argc, char **argv, char **env)
 			}
 			free_all(2, executable_path, dir_mem);
 		}
+		free(input);
 		free_arr(args);
 	}
 
