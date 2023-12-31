@@ -3,10 +3,6 @@
 #include <string.h>
 #include "shell.h"
 
-int is_delim(char ch, char *delims);
-int count_tokens(char *str, char *delims);
-int has_only_delims(char *str, char *delims);
-
 /**
  * get_tokens - Returns a NULL-terminated array of tokens got by splitting up
  *               the provided string using the given delimiter/delimiters.

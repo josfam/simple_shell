@@ -47,6 +47,9 @@ int len_arr(char **arr);
 /* using the given delimiter/delimiters. */
 char **get_tokens(char *str, char *delims);
 
+/* Counts the number of tokens, separated by the given delimiters. */
+int count_tokens(char *str, char *delims);
+
 /* Checks if the provided character is a delimiter. */
 int is_delim(char ch, char *delims);
 
