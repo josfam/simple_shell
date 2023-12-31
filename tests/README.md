@@ -37,7 +37,7 @@ $
 ## str-compare.c
 
 ```sh
-$ gcc _strlen.c _comparing.c tests/str-compare.c
+$ gcc -Wall -Werror -Wextra -pedantic -std=gnu89 _strlen.c _comparing.c tests/str-compare.c
 $ ./a.out
 ABC = ABC
 abc > ab
