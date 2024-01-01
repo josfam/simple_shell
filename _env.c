@@ -34,14 +34,16 @@ int _setenv(char *key, char *value, char **env, memPool *pool)
 	int index = -1;
 
 	envPtr = env;
+	new_var = concat_three(key, "=", value);
+
+	if (!new_var)
+		return -1;
+
+	append_memory(pool, new_var);
 
 	/* Replace the value of the key, if it already exists */
 	if (key_exists(key, envPtr, &index))
 	{
-		new_var = concat_three(key, "=", value);
-		if (!new_var)
-			return -1;
-		append_memory(pool, new_var);
 		env[index] = new_var;
 		return (0);
 	}
